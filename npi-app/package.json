@@ -25,6 +25,7 @@
     "@capacitor/haptics": "1.1.0",
     "@capacitor/keyboard": "1.1.0",
     "@capacitor/status-bar": "1.0.3",
+    "@ionic-native/core": "^5.36.0",
     "@ionic-native/device-motion": "^5.36.0",
     "@ionic-native/device-orientation": "^5.36.0",
     "@ionic-native/qr-scanner": "^5.36.0",
