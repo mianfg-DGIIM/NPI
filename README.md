@@ -58,9 +58,6 @@ Ejecuta los siguientes comandos para que la aplicación se ejecute en tu móvil:
 1. ```
    ionic capacitor sync android
    ```
-> **Si en este paso ha salido un error recomendando utilizar el comando `ionic init`, haremos lo siguiente:**
-
-> **Ejecutaremos el comando `ionic init`.** Al ejecutar este comando nos pedirá un nombre para el proyecto (npi-app por ejemplo) y luego seleccionamos `@ionic/angular (angular)` como tipo de proyecto. Esto inicializará el proyecto de ionic de forma exitosa.
 
 2. ```
    ionic capacitor build android -l
