@@ -1,0 +1,7 @@
+{
+  "name": "npi-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
