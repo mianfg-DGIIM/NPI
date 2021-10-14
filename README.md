@@ -18,7 +18,7 @@ Para poder desarrollar esta aplicación, deberás seguir primero los siguientes 
 
 2. **Entra en el directorio `npi-app`.** Este paso es MUY importante, no ejecutes NADA sobre el directorio raíz del repositorio.
 
-3. **Ejecuta `npm install`.** Esto instalará todas las dependencias correspondientes. Ejecuta este comando periódicamente para tener instalados los últimos plugins.
+3. **Ejecuta `npm install`.** Esto instalará todas las dependencias correspondientes. Ejecuta este comando periódicamente para tener instaladas las últimas dependencias.
 
 ¡Ya está todo listo! Ahora puedes programar sin complicaciones.
 
@@ -49,6 +49,7 @@ Una vez tengas esto, comprueba que tu móvil es accesible por `adb`. Inserta el 
 List of devices attached
 xxxxxxxx        device
 ```
+> Fíjate en cómo tu dispositivo aparece. Si no aparece ninguna línea con `device`, `adb` no puede acceder a tu dispositivo.
 
 ### Ejecuta la aplicación en modo _live reload_
 
@@ -62,6 +63,10 @@ Ejecuta los siguientes comandos para que la aplicación se ejecute en tu móvil:
    ionic capacitor build android -l
    ```
 
+En las ocasiones consecutivas bastará con ejecutar el comando 2. Si no funciona, ejecuta primero el 1 y luego el 2.
+
 ### Consola de depuración
 
 Para ver el _output_ de la consola abre Chrome y entra en [chrome://inspect/#devices](chrome://inspect/#devices). Al cabo de un rato aparecerá el dispositivo. Pulsa en **inspect**.
+
+Todos los `console.log` aparecerán en esta consola.
