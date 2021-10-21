@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { DeviceMotion } from '@ionic-native/device-motion/ngx';
 import { DeviceOrientation } from '@ionic-native/device-orientation/ngx';
 import { Shake } from '@ionic-native/shake/ngx';
+import { QRScanner } from '@ionic-native/qr-scanner/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +21,8 @@ import { Shake } from '@ionic-native/shake/ngx';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     DeviceMotion,
     DeviceOrientation,
-    Shake
+    Shake,
+    QRScanner,
   ],
   bootstrap: [AppComponent],
 })
