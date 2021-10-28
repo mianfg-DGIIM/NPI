@@ -60,7 +60,7 @@ Ejecuta los siguientes comandos para que la aplicación se ejecute en tu móvil:
    ```
 
 2. ```
-   ionic capacitor build android -l
+   ionic capacitor run android -l
    ```
 
 En las ocasiones consecutivas bastará con ejecutar el comando 2. Si no funciona, ejecuta primero el 1 y luego el 2.
