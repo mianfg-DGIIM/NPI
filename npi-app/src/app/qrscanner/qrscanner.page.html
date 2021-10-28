@@ -1,0 +1,39 @@
+<ion-content padding [class.show-qr-scanner]="isOn">
+
+  <div class="permission-access">
+    <h3>Enable Camera Access</h3>
+
+    <p>In order to use QR scanner, you need to enable camera access in your settings</p>
+
+    <ion-button shape="round" fill="outline" (click)="openSettings()">
+      Go to Settings
+    </ion-button>
+  </div>
+
+</ion-content>
+
+
+<div class="scanner-focus-icon" *ngIf="isOn">
+  <div class="square"></div>
+</div>
+
+
+<div class="scanner-options" *ngIf="isOn">
+
+  <ion-toolbar>
+
+    <ion-button *ngIf="!isLightOn" (click)="enableLight()">
+      <ion-icon slot="icon-only" name="flash"></ion-icon>
+    </ion-button>
+
+    <ion-button *ngIf="isLightOn" (click)="disableLight()">
+      <ion-icon slot="icon-only" name="flash-off"></ion-icon>
+    </ion-button>
+
+    <ion-button (click)="reverseCamera()">
+      <ion-icon slot="icon-only" name="reverse-camera"></ion-icon>
+    </ion-button>
+
+  </ion-toolbar>
+
+</div>
