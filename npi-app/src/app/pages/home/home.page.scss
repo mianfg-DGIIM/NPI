@@ -1,0 +1,139 @@
+.home {
+  &-page {
+    padding: 20px;
+  }
+
+  &-icon {
+    margin-bottom: 20px;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    ion-icon {
+      font-size: 100px;
+      color: var(--ion-color-light-contrast);
+    }
+  }
+
+  &-search {
+    ion-searchbar {
+      padding: 0;
+    }
+  }
+}
+
+.result {
+  &-box {
+    background-color: #ddd;
+    border-radius: 8px;
+  }
+
+  &-item {
+    display: flex;
+    padding: 12px;
+    width: 100%;
+    border-bottom: 1px solid #2e2e2e;
+
+    &-last {
+      border-bottom: none;
+    }
+
+    &-icon {
+      ion-icon {
+        font-size: 24px;
+        margin: 4px 16px 4px 0;
+      }
+    }
+
+    &-texts {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      &-left {
+        &-head {
+          font-size: 12px;
+          color: #2e2e2e;
+          font-weight: 400;
+          margin-bottom: 4px;
+        }
+        &-main {
+          font-size: 16px;
+          color: black;
+          font-weight: 600;
+        }
+      }
+
+      &-right {
+        display: flex;
+
+        &-element {
+          display: flex;
+          align-items: flex-end;
+          
+        }
+
+        &-small {
+          font-size: 12px;
+          color: #2e2e2e;
+          font-weight: 400;
+          margin-right: 4px;
+        }
+
+        &-big {
+          font-size: 16px;
+          color: #2e2e2e;
+          font-weight: 500;
+        }
+
+        &-first {
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+}
+
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+
+.main_avatar{
+  width: 100px; 
+	height: 100px;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:30%;
+}
+
+.prueba{
+  display:block;
+  margin-left:100px;
+  margin-right:auto;
+}

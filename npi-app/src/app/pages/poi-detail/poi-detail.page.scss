@@ -1,0 +1,30 @@
+.poi-detail {
+  &-page {
+    padding: 20px;
+  }
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    &-data {
+      display: flex;
+
+      &-icon {
+        font-size: 24px;
+        margin-right: 16px;
+      }
+
+      &-text {
+        font-size: 24px;
+        font-weight: 600;
+      }
+    }
+
+    &-close {
+      font-size: 24px;
+      margin-left: 16px;
+    }
+  }
+}

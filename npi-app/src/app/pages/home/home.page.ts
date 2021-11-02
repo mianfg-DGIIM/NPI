@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+
+import { DatabaseService } from '../../services/database/database.service';
+
+import { PoiDetailPage } from '../poi-detail/poi-detail.page';
 
 // accelerometer
 import { DeviceMotion, DeviceMotionAccelerationData } from '@ionic-native/device-motion/ngx';
@@ -18,7 +23,12 @@ export class HomePage implements OnInit {
   private deviceOrientationData : any;
   private shakeTrigger : boolean = true;
 
+  private searchInfo = [];
+  private searchShow = [];
+
   constructor(
+    private modalCtrl: ModalController,
+    private databaseSrv: DatabaseService,
     private deviceMotion: DeviceMotion,
     private deviceOrientation: DeviceOrientation,
     private shake: Shake,
@@ -26,6 +36,7 @@ export class HomePage implements OnInit {
   ) {}
 
   async ngOnInit() {
+    this.searchInfo = this.databaseSrv.getPois();
     // accelerometer
     this.deviceMotion.getCurrentAcceleration().then(
       (acceleration: DeviceMotionAccelerationData) => console.log(acceleration),
@@ -50,6 +61,31 @@ export class HomePage implements OnInit {
     var shakeSubscription = this.shake.startWatch(30).subscribe(() => {
       this.shakeTrigger = !this.shakeTrigger;
     });
+  }
+
+  public search(query: string): void {
+    this.searchShow = [];
+
+    for (const searchItem of this.searchInfo) {
+      const searchItemNormalized = searchItem.name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+      const queryNormalized = query.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+
+      if (searchItemNormalized.includes(queryNormalized) && queryNormalized !== '') {
+        this.searchShow.push(searchItem); 
+      }
+    }
+  }
+
+  public async openPoi(id: number): Promise<void> {
+    const modal = await this.modalCtrl.create({
+      component: PoiDetailPage,
+      cssClass: 'modal-half-space',
+      animated: true,
+      componentProps: {
+        'id': id
+      }
+    });
+    return await modal.present();
   }
 
 }

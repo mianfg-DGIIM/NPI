@@ -1,0 +1,41 @@
+<div class="home-page">
+  <div class="home-icon">
+    <ion-icon name="navigate-circle"></ion-icon>
+  </div>
+  <div class="home-search">
+    <div class="home-search-bar">
+      <ion-searchbar class="npi-searchbar" placeholder="Escriba para buscar..." (ionChange)="search($event.target.value)" showClearIcon="always" clearIcon="close-outline"></ion-searchbar>
+    </div>
+    <div class="home-search-results" *ngIf="searchShow.length > 0">
+      <div class="result-box">
+        <div class="result-item" *ngFor="let item of searchShow; let i = index"
+          [ngClass]="{'result-item-last':i===searchShow.length-1}" (click)="openPoi(item.id)">
+          <div class="result-item-icon"><ion-icon [name]="item.icon"></ion-icon></div>
+          <div class="result-item-texts">
+            <div class="result-item-texts-left">
+              <div class="result-item-texts-left-head">{{item.type}}</div>
+              <div class="result-item-texts-left-main">{{item.name}}</div>
+            </div>
+            <div class="result-item-texts-right">
+              <div class="result-item-texts-right-element result-item-texts-right-first">
+                <div class="result-item-texts-right-small">ED.</div>
+                <div class="result-item-texts-right-big">{{item.building}}</div>
+              </div>
+              <div class="result-item-texts-right-element result-item-texts-right-second">
+                <div class="result-item-texts-right-small">PL.</div>
+                <div class="result-item-texts-right-big">{{item.floor}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<ion-avatar class="main_avatar">
+  <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+</ion-avatar>
+
+<ion-searchbar class="prueba" showCancelButton="focus"></ion-searchbar>-->
+
