@@ -27,4 +27,61 @@
       margin-left: 16px;
     }
   }
+
+  &-body {
+    padding: 20px 0;
+  }
+
+  &-location {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-bottom: 20px;
+
+    &-icon {
+      font-size: 16px;
+      margin-right: 10px;
+    }
+  }
+
+  &-schedule {
+    margin-bottom: 20px;
+
+    &-item {
+      display: flex;
+      align-items: flex-start;
+      justify-content: left;
+      color: gray;
+      width: 100%;
+      margin-bottom: 10px;
+
+      &-active {
+        color: black;
+      }
+
+      &-time {
+        width: 15%;
+      }
+
+      &-text {
+        &-sub {
+          font-size: 12px;
+        }
+      }
+    }
+
+  }
+
+  &-image {
+    margin-bottom: -20px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+ion-fab {
+  padding: 10px;
 }

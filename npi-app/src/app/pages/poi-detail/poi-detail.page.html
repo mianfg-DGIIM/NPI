@@ -13,5 +13,61 @@
         <ion-icon name="close" (click)="closeModal()"></ion-icon>
       </div>
     </div>
+    <div class="poi-detail-body">
+      <div class="poi-detail-location">
+        <div class="poi-detail-location-icon"><ion-icon name="location"></ion-icon></div>
+        <div class="poi-detail-location-text">Edificio {{info.building}} · Planta {{info.floor}}</div>
+      </div>
+      <div class="poi-detail-schedule">
+        <div class="poi-detail-schedule-item">
+          <div class="poi-detail-schedule-item-time">
+            18:00
+          </div>
+          <div class="poi-detail-schedule-item-text">
+            <div class="poi-detail-schedule-item-text-head">
+              Fundamentos Físicos y Tecnológicos
+            </div>
+            <div class="poi-detail-schedule-item-text-sub">
+              1º Grado en Ingeniería Informática
+            </div>
+          </div>
+        </div>
+        <div class="poi-detail-schedule-item poi-detail-schedule-item-active">
+          <div class="poi-detail-schedule-item-time">
+            18:00
+          </div>
+          <div class="poi-detail-schedule-item-text">
+            <div class="poi-detail-schedule-item-text-head">
+              Fundamentos Físicos y Tecnológicos
+            </div>
+            <div class="poi-detail-schedule-item-text-sub">
+              1º Grado en Ingeniería Informática
+            </div>
+          </div>
+        </div>
+        <div class="poi-detail-schedule-item">
+          <div class="poi-detail-schedule-item-time">
+            18:00
+          </div>
+          <div class="poi-detail-schedule-item-text">
+            <div class="poi-detail-schedule-item-text-head">
+              Fundamentos Físicos y Tecnológicos
+            </div>
+            <div class="poi-detail-schedule-item-text-sub">
+              1º Grado en Ingeniería Informática
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="poi-detail-image">
+    <img src="https://grados.ugr.es/informatica/pages/titulacion/ETSIIT-comedor/!/">
   </div>
 </div>
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button>
+    <ion-icon name="navigate"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
