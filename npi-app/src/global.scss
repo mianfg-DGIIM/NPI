@@ -52,3 +52,30 @@
     contain: content;
   }
 }
+
+.modal-quarter-space {
+  --max-height-modal-space: 25vh;
+  height: auto;
+
+  .ion-page { 
+    .inner-content {
+      max-height: var(--max-height-modal-space);
+      overflow: auto;
+      margin-bottom: var(--ion-safe-area-bottom);
+    }
+  }
+
+  .modal-wrapper {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    --border-radius: 8px 8px 0px 0px;
+    height: auto;
+  }
+
+  .ion-page {
+    position: relative;
+    display: block;
+    contain: content;
+  }
+}
