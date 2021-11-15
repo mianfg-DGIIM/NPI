@@ -7,45 +7,69 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    padding-right: 30px;
 
     &-data {
       display: flex;
 
       &-icon {
-        font-size: 24px;
-        margin-right: 16px;
+        ion-icon {
+          font-size: 24px;
+          margin: 4px 16px 4px 0;
+          background-color: #fbae18;
+          color: white;
+          padding: 6px;
+          border-radius: 20px;
+        }
       }
 
       &-text {
         font-size: 24px;
         font-weight: 600;
+        margin-top: 8px;
+      }
+
+      &-subtext {
+        font-size: 18px;
+        margin-top: 6px;
       }
     }
+  }
 
-    &-close {
-      font-size: 24px;
-      margin-left: 16px;
-    }
+  &-close {
+    position: absolute;
+    font-size: 24px;
+    top: 20px;
+    right: 20px;
   }
 
   &-body {
     padding: 20px 0;
+    padding-bottom: 0;
   }
 
-  &-location {
+  &-icon {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: left;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 
     &-icon {
       font-size: 16px;
       margin-right: 10px;
     }
+
+    &-text {
+      &-small {
+        font-size: 12px;
+      }
+    }
   }
 
-  &-schedule {
+  &-schedule-titled {
     margin-bottom: 20px;
+    margin-top: 20px;
+    padding-top: 10px;
 
     &-item {
       display: flex;
@@ -69,7 +93,24 @@
         }
       }
     }
+  }
 
+  &-schedule-untitled {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding-top: 10px;
+
+    &-item {
+      display: flex;
+      align-items: flex-start;
+      justify-content: left;
+      width: 100%;
+      margin-bottom: 4px;
+
+      &-left {
+        width: 60%;
+      }
+    }
   }
 
   &-image {
@@ -84,4 +125,6 @@
 
 ion-fab {
   padding: 10px;
+
+  color: white!important;
 }

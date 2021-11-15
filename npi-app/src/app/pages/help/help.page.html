@@ -1,0 +1,30 @@
+<div class="inner-content-transparent">
+  <ion-button color="danger" fill="outline" expand="block">
+    <ion-icon name="flame"></ion-icon>
+    <div class="button-text">Extintor más cercano</div>
+  </ion-button>
+  <ion-button color="danger" fill="outline" expand="block">
+    <ion-icon name="exit"></ion-icon>
+    <div class="button-text">Salida de emergencia más cercana</div>
+  </ion-button>
+  <ion-button color="danger" fill="outline" expand="block">
+    <ion-icon name="call"></ion-icon>
+    <div class="button-text">Llamar al 112</div>
+  </ion-button>
+</div>
+
+<ion-fab (click)="gotoPoi()" vertical="bottom" horizontal="end" slot="fixed" *ngIf="show">
+  <ion-fab-button color="primary">
+    <ion-icon name="navigate"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<div class="help-icon">
+  <div class="help-icon-container">
+    SOS
+  </div>
+</div>
+
+<div class="help-close">
+  <ion-icon name="close" (click)="closeModal()"></ion-icon>
+</div>

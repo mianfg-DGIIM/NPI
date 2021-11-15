@@ -1,6 +1,19 @@
 .home {
   &-page {
-    padding: 20px;
+    background-color: white;
+    height: 100vh;
+
+    &-search {
+      padding: 20px;
+    }
+
+    &-365 {
+      height: 78vh;
+
+      iframe {
+        border: none;
+      }
+    }
   }
 
   &-icon {
@@ -9,9 +22,10 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    ion-icon {
-      font-size: 100px;
-      color: var(--ion-color-light-contrast);
+
+    img {
+      width: 100px;
+      height: 100px;
     }
   }
 
@@ -24,15 +38,13 @@
 
 .result {
   &-box {
-    background-color: #ddd;
-    border-radius: 8px;
   }
 
   &-item {
     display: flex;
     padding: 12px;
     width: 100%;
-    border-bottom: 1px solid #2e2e2e;
+    border-bottom: 1px solid #cfcfcf;
 
     &-last {
       border-bottom: none;
@@ -40,8 +52,12 @@
 
     &-icon {
       ion-icon {
-        font-size: 24px;
+        font-size: 20px;
         margin: 4px 16px 4px 0;
+        background-color: #fbae18;
+        color: white;
+        padding: 4px;
+        border-radius: 20px;
       }
     }
 
@@ -50,7 +66,7 @@
       display: flex;
       justify-content: space-between;
 
-      &-left {
+      &-left {        
         &-head {
           font-size: 12px;
           color: #2e2e2e;
@@ -136,4 +152,9 @@
   display:block;
   margin-left:100px;
   margin-right:auto;
+}
+
+.ripple-parent {
+  position: relative;
+  overflow: hidden;
 }

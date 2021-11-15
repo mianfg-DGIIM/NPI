@@ -15,7 +15,10 @@ const routes: Routes = [
     path: 'qrscanner',
     loadChildren: () => import('./pages/qrscanner/qrscanner.module').then( m => m.QRScannerPageModule)
   },
-
+  {
+    path: 'destination',
+    loadChildren: () => import('./pages/destination/destination.module').then( m => m.DestinationPageModule)
+  }
 ];
 
 @NgModule({

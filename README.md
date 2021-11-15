@@ -70,3 +70,39 @@ En las ocasiones consecutivas bastará con ejecutar el comando 2. Si no funciona
 Para ver el _output_ de la consola abre Chrome y entra en [chrome://inspect/#devices](chrome://inspect/#devices). Al cabo de un rato aparecerá el dispositivo. Pulsa en **inspect**.
 
 Todos los `console.log` aparecerán en esta consola.
+
+
+## Errores
+
+```
+[capacitor]         C:\Users\CF\Repos\npi-app\npi-app\android\capacitor-cordova-android-plugins\src\main\java\com\bitpay\cordova\qrscanner\QRScanner.java:27: error: cannot find symbol
+[capacitor]         import android.support.v4.app.ActivityCompat;
+[capacitor]         ^
+[capacitor]         symbol:   class ActivityCompat
+[capacitor]         location: package android.support.v4.app
+[capacitor]         > Task :capacitor-cordova-android-plugins:compileDebugJavaWithJavac
+[capacitor]         C:\Users\CF\Repos\npi-app\npi-app\android\capacitor-cordova-android-plugins\src\main\java\com\bitpay\cordova\qrscanner\QRScanner.java:356: error: cannot find symbol
+[capacitor]         boolean showRationale = ActivityCompat.shouldShowRequestPermissionRationale(cordova.getActivity(), permission);
+[capacitor]         ^
+[capacitor]         symbol:   variable ActivityCompat
+[capacitor]         location: class com.bitpay.cordova.qrscanner.QRScanner
+[capacitor]         Note: C:\Users\CF\Repos\npi-app\npi-app\android\capacitor-cordova-android-plugins\src\main\java\com\bitpay\cordova\qrscanner\QRScanner.java uses or overrides a deprecated API.
+[capacitor]
+[capacitor]         BUILD FAILED in 48s
+```
+
+La solución es ejecutar:
+
+```
+npx jetifier
+npx cap sync android
+```
+
+Es posible que debas instalar `jetifier` antes, en cuyo caso te lo indicará directamente.
+
+##### ERR_CONNECTION_REFUSED
+
+Cambia la IP de la app, usando
+
+````
+

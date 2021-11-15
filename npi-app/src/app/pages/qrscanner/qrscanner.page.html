@@ -1,37 +1,62 @@
 <ion-content padding [class.show-qr-scanner]="isOn">
 
   <div class="permission-access">
-    <h3>Enable Camera Access</h3>
+    <h3>Permite el acceso a la cámara</h3>
 
-    <p>In order to use QR scanner, you need to enable camera access in your settings</p>
+    <p>Para usar el escáner QR, necesitas habilitar la cámara en los ajustes de tu dispositivo</p>
 
-    <ion-button shape="round" fill="outline" (click)="openSettings()">
-      Go to Settings
+    <ion-button shape="round" color="warning" fill="outline" (click)="openSettings()">
+      Ir a Ajustes
     </ion-button>
   </div>
 
 </ion-content>
 
-
 <div class="scanner-focus-icon" *ngIf="isOn">
   <div class="square"></div>
 </div>
 
+<div class="nav">
+  <div class="nav-cta">
+    Escanea el QR más cercano a ti
+  </div>
+  
+  <div class="nav-destination">
+    <div class="nav-destination-data">
+      <div class="nav-destination-data-icon">
+        <ion-icon [name]="info.icon"></ion-icon>
+      </div>
+      <div>
+        <div class="nav-destination-data-pretext">
+          <ion-icon name="navigate"></ion-icon>
+          Obtén direcciones hacia
+        </div>
+        <div class="nav-destination-data-text">{{info.name}}</div>
+        <div class="nav-destination-data-subtext" *ngIf="info.department">
+          {{info.department}}
+        </div>
+      </div>
+    </div>
+    <div class="nav-destination-close">
+      <ion-icon name="close" (click)="back()"></ion-icon>
+    </div>
+  </div>
+</div>
 
 <div class="scanner-options" *ngIf="isOn">
 
   <ion-toolbar>
 
-    <ion-button *ngIf="!isLightOn" (click)="enableLight()">
+    <ion-button color="light" *ngIf="!isLightOn" (click)="enableLight()">
       <ion-icon slot="icon-only" name="flash"></ion-icon>
     </ion-button>
 
-    <ion-button *ngIf="isLightOn" (click)="disableLight()">
+    <ion-button color="light" *ngIf="isLightOn" (click)="disableLight()">
       <ion-icon slot="icon-only" name="flash-off"></ion-icon>
     </ion-button>
 
-    <ion-button (click)="reverseCamera()">
-      <ion-icon slot="icon-only" name="reverse-camera"></ion-icon>
+    <ion-button color="light" (click)="reverseCamera()">
+      <ion-icon slot="icon-only" name="camera-reverse"></ion-icon>
     </ion-button>
 
   </ion-toolbar>

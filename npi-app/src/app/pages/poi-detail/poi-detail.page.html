@@ -5,69 +5,100 @@
         <div class="poi-detail-header-data-icon">
           <ion-icon [name]="info.icon"></ion-icon>
         </div>
-        <div class="poi-detail-header-data-text">
-          {{info.name}}
+        <div>
+          <div class="poi-detail-header-data-text">{{info.name}}</div>
+          <div class="poi-detail-header-data-subtext" *ngIf="info.department">
+            {{info.department}}
+          </div>
         </div>
-      </div>
-      <div class="poi-detail-header-close">
-        <ion-icon name="close" (click)="closeModal()"></ion-icon>
       </div>
     </div>
     <div class="poi-detail-body">
-      <div class="poi-detail-location">
-        <div class="poi-detail-location-icon"><ion-icon name="location"></ion-icon></div>
-        <div class="poi-detail-location-text">Edificio {{info.building}} · Planta {{info.floor}}</div>
+      <div class="poi-detail-icon">
+        <div class="poi-detail-icon-icon"><ion-icon name="location"></ion-icon></div>
+        <div class="poi-detail-icon-text">Edificio {{info.building}} · Planta {{info.floor}}</div>
       </div>
-      <div class="poi-detail-schedule">
-        <div class="poi-detail-schedule-item">
-          <div class="poi-detail-schedule-item-time">
-            18:00
-          </div>
-          <div class="poi-detail-schedule-item-text">
-            <div class="poi-detail-schedule-item-text-head">
-              Fundamentos Físicos y Tecnológicos
-            </div>
-            <div class="poi-detail-schedule-item-text-sub">
-              1º Grado en Ingeniería Informática
-            </div>
-          </div>
-        </div>
-        <div class="poi-detail-schedule-item poi-detail-schedule-item-active">
-          <div class="poi-detail-schedule-item-time">
-            18:00
-          </div>
-          <div class="poi-detail-schedule-item-text">
-            <div class="poi-detail-schedule-item-text-head">
-              Fundamentos Físicos y Tecnológicos
-            </div>
-            <div class="poi-detail-schedule-item-text-sub">
-              1º Grado en Ingeniería Informática
-            </div>
-          </div>
-        </div>
-        <div class="poi-detail-schedule-item">
-          <div class="poi-detail-schedule-item-time">
-            18:00
-          </div>
-          <div class="poi-detail-schedule-item-text">
-            <div class="poi-detail-schedule-item-text-head">
-              Fundamentos Físicos y Tecnológicos
-            </div>
-            <div class="poi-detail-schedule-item-text-sub">
-              1º Grado en Ingeniería Informática
-            </div>
-          </div>
+      <div class="poi-detail-icon" *ngIf="info.capacity">
+        <div class="poi-detail-icon-icon"><ion-icon name="people"></ion-icon></div>
+        <div class="poi-detail-icon-text">
+          <div class="poi-detail-icon-text-small">CAPACIDAD</div>
+          <div>{{info.capacity}} personas <span *ngIf="info.available">({{info.available}} disponibles)</span></div>
         </div>
       </div>
-      
+      <div class="poi-detail-icon" *ngIf="info.contact.phone">
+        <div class="poi-detail-icon-icon"><ion-icon name="call"></ion-icon></div>
+        <div class="poi-detail-icon-text">
+          <div class="poi-detail-icon-text-small"></div>
+          <div>{{info.contact.phone}}</div>
+        </div>
+      </div>
+      <div class="poi-detail-icon" *ngIf="info.contact.email">
+        <div class="poi-detail-icon-icon"><ion-icon name="mail"></ion-icon></div>
+        <div class="poi-detail-icon-text">
+          <div class="poi-detail-icon-text-small"></div>
+          <div>{{info.contact.email}}</div>
+        </div>
+      </div>
+      <div class="poi-detail-schedule-titled" *ngIf="info.scheduleType === 'TITLED'">
+        <div class="poi-detail-schedule-titled-item" *ngIf="info.schedule.before">
+          <div class="poi-detail-schedule-titled-item-time">
+            {{info.schedule.before.start}}
+          </div>
+          <div class="poi-detail-schedule-titled-item-text">
+            <div class="poi-detail-schedule-titled-item-text-head">
+              {{info.schedule.before.title}}
+            </div>
+            <div class="poi-detail-schedule-titled-item-text-sub">
+              {{info.schedule.before.description}}
+            </div>
+          </div>
+        </div>
+        <div class="poi-detail-schedule-titled-item poi-detail-schedule-titled-item-active" *ngIf="info.schedule.now">
+          <div class="poi-detail-schedule-titled-item-time">
+            {{info.schedule.now.start}}
+          </div>
+          <div class="poi-detail-schedule-titled-item-text">
+            <div class="poi-detail-schedule-titled-item-text-head">
+              {{info.schedule.now.title}}
+            </div>
+            <div class="poi-detail-schedule-titled-item-text-sub">
+              {{info.schedule.now.description}}
+            </div>
+          </div>
+        </div>
+        <div class="poi-detail-schedule-titled-item" *ngIf="info.schedule.after">
+          <div class="poi-detail-schedule-titled-item-time">
+            {{info.schedule.after.start}}
+          </div>
+          <div class="poi-detail-schedule-titled-item-text">
+            <div class="poi-detail-schedule-titled-item-text-head">
+              {{info.schedule.after.title}}
+            </div>
+            <div class="poi-detail-schedule-titled-item-text-sub">
+              {{info.schedule.after.description}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="poi-detail-schedule-untitled" *ngIf="info.scheduleType === 'UNTITLED'">
+        <div class="poi-detail-schedule-untitled-item" *ngFor="let scheduleItem of info.schedule">
+          <div class="poi-detail-schedule-untitled-item-left">{{scheduleItem.day}}</div>
+          <div class="poi-detail-schedule-untitled-item-right">{{scheduleItem.start}} - {{scheduleItem.end}}</div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="poi-detail-image">
     <img src="https://grados.ugr.es/informatica/pages/titulacion/ETSIIT-comedor/!/">
   </div>
 </div>
-<ion-fab vertical="bottom" horizontal="end" slot="fixed">
-  <ion-fab-button>
+
+<div class="poi-detail-close">
+  <ion-icon name="close" (click)="closeModal()"></ion-icon>
+</div>
+
+<ion-fab (click)="gotoPoi()" vertical="bottom" horizontal="end" slot="fixed" *ngIf="show">
+  <ion-fab-button color="warning">
     <ion-icon name="navigate"></ion-icon>
   </ion-fab-button>
 </ion-fab>

@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
-  appName: 'npi-app',
+  appName: 'ETSIIT Walk',
   webDir: 'www',
   bundledWebRuntime: false
 };

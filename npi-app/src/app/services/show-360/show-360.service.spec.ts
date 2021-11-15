@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DatabaseService } from './database.service';
+import { Show360Service } from './show-360.service';
 
-describe('DatabaseService', () => {
-  let service: DatabaseService;
+describe('Show360Service', () => {
+  let service: Show360Service;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DatabaseService);
+    service = TestBed.inject(Show360Service);
   });
 
   it('should be created', () => {

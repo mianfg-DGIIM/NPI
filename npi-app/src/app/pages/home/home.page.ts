@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
-import { DatabaseService } from '../../services/database/database.service';
+import { ApiService } from '../../services/api/api.service';
 
 import { PoiDetailPage } from '../poi-detail/poi-detail.page';
+import { HelpPage } from '../help/help.page';
 
 // accelerometer
 import { DeviceMotion, DeviceMotionAccelerationData } from '@ionic-native/device-motion/ngx';
@@ -12,6 +13,7 @@ import { DeviceOrientation, DeviceOrientationCompassHeading } from '@ionic-nativ
 import { Shake } from '@ionic-native/shake/ngx';
 // qr
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser/ngx';
 
 @Component({
   selector: 'app-home',
@@ -28,17 +30,17 @@ export class HomePage implements OnInit {
 
   constructor(
     private modalCtrl: ModalController,
-    private databaseSrv: DatabaseService,
+    private apiSrv: ApiService,
     private deviceMotion: DeviceMotion,
     private deviceOrientation: DeviceOrientation,
     private shake: Shake,
-    private qrScanner: QRScanner
+    private iab: InAppBrowser
   ) {}
 
   async ngOnInit() {
-    this.searchInfo = this.databaseSrv.getPois();
+    this.searchInfo = this.apiSrv.getPois();
     // accelerometer
-    this.deviceMotion.getCurrentAcceleration().then(
+    /*this.deviceMotion.getCurrentAcceleration().then(
       (acceleration: DeviceMotionAccelerationData) => console.log(acceleration),
       (error: any) => console.log(error)
     );
@@ -55,11 +57,16 @@ export class HomePage implements OnInit {
     var deviceOrientationSubscription = this.deviceOrientation.watchHeading().subscribe((data: DeviceOrientationCompassHeading) => {
       this.deviceOrientationData = data;
       console.log(this.deviceOrientationData);
-    });    
+    });*/
 
     // accelerometer
-    var shakeSubscription = this.shake.startWatch(30).subscribe(() => {
-      this.shakeTrigger = !this.shakeTrigger;
+    var shakeSubscription = this.shake.startWatch(30).subscribe(async () => {
+      const modal = await this.modalCtrl.create({
+        component: HelpPage,
+        cssClass: 'modal-quarter-space',
+        animated: true,
+      });
+      return await modal.present();
     });
   }
 
@@ -87,5 +94,4 @@ export class HomePage implements OnInit {
     });
     return await modal.present();
   }
-
 }
