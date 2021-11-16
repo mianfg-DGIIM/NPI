@@ -135,7 +135,7 @@ export class QRScannerPage {
       if (location === this.localSrv.getDestinationPoi()) {
         this.router.navigate(['/destination']);
       } else {
-        this.show360Srv.show();
+        this.show360Srv.show(location);
       }
     }
   }
