@@ -120,7 +120,7 @@
     // Load querystring
     const params = new URLSearchParams(window.location.search);
     for (const attr of ['position']) {
-      for (const orient of ['radius', 'theta', 'pi']) {
+      for (const orient of ['radius', 'theta', 'phi']) {
         const str = attr + orient.charAt(0).toUpperCase() + orient.slice(1);
         if (!!params.get(str)) {
           config.story.scenes[0].hotspots[0].transform[attr][orient] = parseInt(params.get(str), 10);
