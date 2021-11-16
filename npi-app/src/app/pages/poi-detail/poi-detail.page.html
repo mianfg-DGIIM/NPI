@@ -25,14 +25,14 @@
           <div>{{info.capacity}} personas <span *ngIf="info.available">({{info.available}} disponibles)</span></div>
         </div>
       </div>
-      <div class="poi-detail-icon" *ngIf="info.contact.phone">
+      <div class="poi-detail-icon" *ngIf="info.contact && info.contact.phone">
         <div class="poi-detail-icon-icon"><ion-icon name="call"></ion-icon></div>
         <div class="poi-detail-icon-text">
           <div class="poi-detail-icon-text-small"></div>
           <div>{{info.contact.phone}}</div>
         </div>
       </div>
-      <div class="poi-detail-icon" *ngIf="info.contact.email">
+      <div class="poi-detail-icon" *ngIf="info.contact && info.contact.email">
         <div class="poi-detail-icon-icon"><ion-icon name="mail"></ion-icon></div>
         <div class="poi-detail-icon-text">
           <div class="poi-detail-icon-text-small"></div>
@@ -88,8 +88,8 @@
       </div>
     </div>
   </div>
-  <div class="poi-detail-image">
-    <img src="https://grados.ugr.es/informatica/pages/titulacion/ETSIIT-comedor/!/">
+  <div class="poi-detail-image" *ngIf="info.image">
+    <img [src]="info.image">
   </div>
 </div>
 

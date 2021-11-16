@@ -32,6 +32,7 @@ export class PoiDetailPage implements OnInit {
 
   ngOnInit(): void {
     this.info = this.apiSrv.getPoi(this.id);
+    console.log(this.info)
   }
 
   public async closeModal(): Promise<void> {

@@ -11,7 +11,7 @@ import { LocalService } from '../local/local.service';
 export class Show360Service {
   @Input() id: number;
   
-  private url = 'https://vault.mianfg.me/npi-app-360/test';
+  private url = 'https://vault.mianfg.me/npi-app-360';
   private options: InAppBrowserOptions = {
     clearcache: 'yes',
     cleardata: 'yes',
@@ -39,7 +39,7 @@ export class Show360Service {
   ) {}
 
   async show() {
-    const show360Params = this.apiSrv.get360Params(this.id);
+    const show360Params = this.apiSrv.get360Params(this.id, this.localSrv.getDestinationPoi());
     await this.show360(show360Params)
   }
 

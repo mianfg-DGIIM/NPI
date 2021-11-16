@@ -4,12 +4,6 @@ import { Injectable, Injector } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiService {
-  private params360 = {
-    1: {
-      'theta': 100
-    }
-  }
-
   private pois = [
     {
       id: 1,
@@ -29,19 +23,20 @@ export class ApiService {
           description: 'Grado en Ingeniería Informática'
         },
         now: {
-          start: '08:00',
-          end: '10:00',
-          title: 'Visión por Computador',
+          start: '10:00',
+          end: '13:00',
+          title: 'Nuevos Paradigmas de Interacción',
           description: 'Grado en Ingeniería Informática'
         },
         after: {
-          start: '08:00',
-          end: '10:00',
-          title: 'Visión por Computador',
+          start: '13:00',
+          end: '15:00',
+          title: 'Procesadores de Lenguajes',
           description: 'Grado en Ingeniería Informática'
         }
       },
-      scheduleType: 'TITLED'
+      scheduleType: 'TITLED',
+      image: 'https://etsiit.ugr.es/sites/centros/etsiit/public/gallery/contenido_atemporal/aula-1-etsiit_atemporal.jpg'
     },
     {
       id: 2,
@@ -104,8 +99,126 @@ export class ApiService {
           allergens: 'Huevo'
         }
       ]
+    },
+    {
+      id: 5,
+      type: 'SECRETARÍA',
+      icon: 'briefcase',
+      name: 'Secretaría',
+      building: 'D',
+      floor: '0',
+      schedule: [
+        {
+          day: 'lunes-viernes',
+          start: '80:30',
+          end: '14:00'
+        },
+        {
+          day: 'lunes-jueves',
+          start: '16:00',
+          end: '20:00'
+        }
+      ]
     }
   ]
+
+  private directions = {
+    10: {
+      // puerta aula
+      description: 'Dirígete hacia la planta 0 del edificio',
+      positionRadius: 50,
+      positionTheta: 95,
+      positionPhi: -30,
+      rotationX: -80,
+      rotationY: 80,
+      rotationZ: 90,
+      scaleX: 2,
+      scaleY: 2,
+      image: 'https://vault.mianfg.me/npi-app-360/images/360-10.jpg'
+    },
+    11: {
+      // escaleras planta 2
+      description: 'Dirígete hacia la planta 0 del edificio',
+      positionRadius: 50,
+      positionTheta: 120,
+      positionPhi: -30,
+      rotationX: -100,
+      rotationY: 60,
+      rotationZ: 90,
+      scaleX: 3,
+      scaleY: 3,
+      image: 'https://vault.mianfg.me/npi-app-360/images/360-11.jpg'
+    },
+    12: {
+      // escaleras planta 1
+      description: 'Dirígete hacia la planta 0 del edificio',
+      positionRadius: 50,
+      positionTheta: 180,
+      positionPhi: -30,
+      rotationX: -100,
+      rotationY: 0,
+      rotationZ: 80,
+      scaleX: 3,
+      scaleY: 3,
+      image: 'https://vault.mianfg.me/npi-app-360/images/360-12.jpg'
+    },
+    13: {
+      // escaleras planta 0
+      description: 'Sal del edificio A (aulas) y entra en el edificio D (despachos)',
+      positionRadius: 50,
+      positionTheta: -20,
+      positionPhi: -30,
+      rotationX: -100,
+      rotationY: 180,
+      rotationZ: 80,
+      scaleX: 3,
+      scaleY: 3,
+      image: 'https://vault.mianfg.me/npi-app-360/images/360-13.jpg'
+    },
+    14: {
+      // conserjería
+      description: 'Sal del edificio A (aulas) y entra en el edificio D (despachos)',
+      positionRadius: 50,
+      positionTheta: -45,
+      positionPhi: -35,
+      rotationX: -80,
+      rotationY: 220,
+      rotationZ: 75,
+      scaleX: 2,
+      scaleY: 2,
+      image: 'https://vault.mianfg.me/npi-app-360/images/360-14.jpg'
+    },
+    15: {
+      // puerta calle
+      description: 'Entra en el edificio D (despachos)',
+      positionRadius: 50,
+      positionTheta: -25,
+      positionPhi: -35,
+      rotationX: -80,
+      rotationY: 180,
+      rotationZ: 75,
+      scaleX: 2,
+      scaleY: 2,
+      image: 'https://vault.mianfg.me/npi-app-360/images/360-15.jpg'
+    },
+    16: {
+      // hall edificio
+      description: 'Sigue recto',
+      positionRadius: 50,
+      positionTheta: -100,
+      positionPhi: -30,
+      rotationX: -100,
+      rotationY: -80,
+      rotationZ: 80,
+      scaleX: 3,
+      scaleY: 3,
+      image: 'https://vault.mianfg.me/npi-app-360/images/360-16.jpg'
+    },
+    /*17: {
+      // destino
+      // no necesario
+    },*/
+  }
 
   public getPois() : any {
     return this.pois;
@@ -115,7 +228,7 @@ export class ApiService {
     return this.pois.filter(poi => poi.id === id)[0];
   }
 
-  public get360Params(poi: number): void {
-    return this.params360[poi];
+  public get360Params(currentPoi: any, destinationPoi: any) {
+    return this.directions[currentPoi];
   }
 }
