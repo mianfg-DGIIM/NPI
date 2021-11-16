@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+ 
+<html lang="es">
+ 
+<head>
+  <meta charset="UTF-8">
+  <title>js test</title>
+  <script src="http://js.leapmotion.com/leap-0.6.3.min.js"></script>
+  <style>
+      
+      div#pointer { position: absolute; top: 0; left: 0; width: 30px; height: 30px; border-radius: 15px; background-color: rgba(0, 0, 255, 0.5); margin-left: -15px; margin-top: -15px; z-index: 100; }
+      
+      div#e11 {border-radius: 18vh; font-size: x-large; position: absolute; margin-top: 50vh; margin-left: 40vw; font-style: inherit; height: 10vh; width: 20vw; background-color: red; color: white; display: flex; justify-content: center; align-items: center; }
+      div#e12 {position: absolute; text-align: center; margin-top: 30vh; margin-left: 30vw; font-style: italic; font-size: xx-large; width: 40vw;}
+      
+      div#e21 { border-radius: 18vh; position: absolute; font-size: xx-large; top: 10vh; left: 20vw; height: 20vh; width: 20vw; background-color: red; color: white; display: flex; justify-content: center; align-items: center; }
+      div#e22 { border-radius: 18vh; position: absolute; font-size: xx-large; top: 10vh; left: 60vw; height: 20vh; width: 20vw; background-color: red; color: white; display: flex; justify-content: center; align-items: center; }
+      div#e23 { border-radius: 18vh; position: absolute; font-size: xx-large; top: 40vh; left: 20vw; height: 20vh; width: 20vw; background-color: red; color: white; display: flex; justify-content: center; align-items: center; }
+      div#e24 { border-radius: 18vh; position: absolute; font-size: xx-large; top: 40vh; left: 60vw; height: 20vh; width: 20vw; background-color: red; color: white; display: flex; justify-content: center; align-items: center; }
+      div#e25 { border-radius: 18vh; position: absolute; font-size: xx-large; top: 70vh; left: 20vw; height: 20vh; width: 20vw; background-color: red; color: white; display: flex; justify-content: center; align-items: center; }
+      div#e26 { border-radius: 18vh; position: absolute; font-size: xx-large; top: 70vh; left: 60vw; height: 20vh; width: 20vw; background-color: red; color: white; display: flex; justify-content: center; align-items: center; }
+
+      div#e31 { position: absolute; top: 25vh; left: 25vw; height: 20vh; width: 20vw; background-color: black; color: white; display: flex; justify-content: center; align-items: center; }
+      div#e32 { position: absolute; top: 0vh; left: 25vw; height: 20vh; width: 20vw; background-color: chocolate; color: white; display: flex; justify-content: center; align-items: center; }
+    
+      div#e41 { font-size:20vh; position: absolute; top: 10vh; left: 40vw; height: 20vh; width: 20vw; display: flex; justify-content: center; align-items: center; }
+      div#e42 { font-size:x-large;border-radius: 18vh; position: absolute; top: 40vh; left: 25vw; height: 10vh; width: 50vw; background-color: red; color: white; display: flex; justify-content: center; align-items: center; }
+      div#e43 { font-size:x-large;border-radius: 18vh; position: absolute; top: 60vh; left: 25vw; height: 10vh; width: 50vw; background-color: red; color: white; display: flex; justify-content: center; align-items: center; }
+      div#e44 { font-size:x-large;border-radius: 18vh; position: absolute; top: 80vh; left: 25vw; height: 10vh; width: 50vw; background-color: red; color: white; display: flex; justify-content: center; align-items: center; }
+      div#e45 { font-size:x-large;border-radius: 18vh; position: absolute; top: 12vh; left: 25vw; height: 10vh; width: 50vw; background-color: red; color: white; display: flex; justify-content: center; align-items: center; }
+      div#e46 { font-size:x-large;border-radius: 18vh; position: absolute; top: 34vh; left: 25vw; height: 10vh; width: 50vw; background-color: red; color: white; display: flex; justify-content: center; align-items: center; }
+      div#e47 { font-size:x-large;border-radius: 18vh; position: absolute; top: 56vh; left: 25vw; height: 10vh; width: 50vw; background-color: red; color: white; display: flex; justify-content: center; align-items: center; }
+      div#e48 { font-size:x-large;border-radius: 18vh; position: absolute; top: 78vh; left: 25vw; height: 10vh; width: 50vw; background-color: red; color: white; display: flex; justify-content: center; align-items: center; }
+      div#e450 { font-size:x-large;border-radius: 18vh; position: absolute; top: 12vh; left: 25vw; height: 10vh; width: 50vw; background-color: red; color: white; display: flex; justify-content: center; align-items: center; }
+      div#e460 { font-size:x-large;border-radius: 18vh; position: absolute; top: 34vh; left: 25vw; height: 10vh; width: 50vw; background-color: red; color: white; display: flex; justify-content: center; align-items: center; }
+      div#e470 { font-size:x-large;border-radius: 18vh; position: absolute; top: 56vh; left: 25vw; height: 10vh; width: 50vw; background-color: red; color: white; display: flex; justify-content: center; align-items: center; }
+      div#e480 { font-size:x-large;border-radius: 18vh; position: absolute; top: 78vh; left: 25vw; height: 10vh; width: 50vw; background-color: red; color: white; display: flex; justify-content: center; align-items: center; }
+      div#infoa01 { font-size:x-large; text-align: center;position: absolute; height: 100vh; width: 100vw; justify-content: center; align-items: center; }
+      div#infoa02 { font-size:x-large; text-align: center;position: absolute; height: 100vh; width: 100vw; justify-content: center; align-items: center; }
+      div#infoa03 { font-size:x-large; text-align: center;position: absolute; height: 100vh; width: 100vw; justify-content: center; align-items: center; }
+      div#infoa04 { font-size:x-large; text-align: center;position: absolute; height: 100vh; width: 100vw; justify-content: center; align-items: center; }
+      div#infoa05 { font-size:x-large; text-align: center;position: absolute; height: 100vh; width: 100vw; justify-content: center; align-items: center; }
+      div#infoa06 { font-size:x-large; text-align: center;position: absolute; height: 100vh; width: 100vw; justify-content: center; align-items: center; }
+      div#infoa07 { font-size:x-large; text-align: center;position: absolute; height: 100vh; width: 100vw; justify-content: center; align-items: center; }
+      div#infoa08 { font-size:x-large; text-align: center;position: absolute; height: 100vh; width: 100vw; justify-content: center; align-items: center; }
+      div#infoa09 { font-size:x-large; text-align: center;position: absolute; height: 100vh; width: 100vw; justify-content: center; align-items: center; }
+      div#infoa10 { font-size:x-large; text-align: center;position: absolute; height: 100vh; width: 100vw; justify-content: center; align-items: center; }
+      div#infoa11 { font-size:x-large; text-align: center;position: absolute; height: 100vh; width: 100vw; justify-content: center; align-items: center; }
+
+
+      div#e51 { font-size:20vh; position: absolute; top: 10vh; left: 40vw; height: 20vh; width: 20vw; display: flex; justify-content: center; align-items: center; }
+      div#e52 { font-size:x-large;border-radius: 18vh; position: absolute; top: 40vh; left: 25vw; height: 10vh; width: 50vw; background-color: red; color: white; display: flex; justify-content: center; align-items: center; }
+      div#e53 { font-size:x-large;border-radius: 18vh; position: absolute; top: 60vh; left: 25vw; height: 10vh; width: 50vw; background-color: red; color: white; display: flex; justify-content: center; align-items: center; }
+      div#e54 { font-size:x-large;border-radius: 18vh; position: absolute; top: 80vh; left: 25vw; height: 10vh; width: 50vw; background-color: red; color: white; display: flex; justify-content: center; align-items: center; }
+      div#infoc01 { font-size:x-large; text-align: center;position: absolute; height: 100vh; width: 100vw; justify-content: center; align-items: center; }
+      div#infoc02 { font-size:x-large; text-align: center;position: absolute; height: 100vh; width: 100vw; justify-content: center; align-items: center; }
+      div#infoc03 { font-size:x-large; text-align: center;position: absolute; height: 100vh; width: 100vw; justify-content: center; align-items: center; }
+      
+
+   </style>
+</head>
+ 
+<body translate="no">
+  <div id="pointer" style="visibility: hidden"></div>
+
+  <div id="e11" >Entrar</div>
+  <div id="e12" >Punto de informacion sobre la ETSIIT</div>
+
+  <div id="e21" style="visibility: hidden">Mapa<ion-icon name="map-outline"></ion-icon></div>
+  <div id="e22" style="visibility: hidden">Aulas<ion-icon name="school-outline"></ion-icon></div>
+  <div id="e23" style="visibility: hidden">Comedor<ion-icon name="fast-food-outline"></ion-icon></div>
+  <div id="e24" style="visibility: hidden">Profesorado<ion-icon name="people-outline"></ion-icon></div>
+  <div id="e25" style="visibility: hidden">Eventos<ion-icon name="calendar-outline"></ion-icon></div>
+  <div id="e26" style="visibility: hidden">Secretaria<ion-icon name="information-circle-outline"></ion-icon></div>
+
+  
+  <div id="e31" style="visibility: hidden">Estas en mapas</div>
+
+  <div id="e41" style="visibility: hidden">AULAS</div>
+  <div id="e42" style="visibility: hidden">Aula 0.1</div>
+  <div id="e43" style="visibility: hidden">Aula 0.2</div>
+  <div id="e44" style="visibility: hidden">Aula 0.3</div>
+  <div id="e45" style="visibility: hidden">Aula 0.4</div>
+  <div id="e46" style="visibility: hidden">Aula 0.5</div>
+  <div id="e47" style="visibility: hidden">Aula 0.6</div>
+  <div id="e48" style="visibility: hidden">Aula 0.7</div>
+  <div id="e450" style="visibility: hidden">Aula 0.8</div>
+  <div id="e460" style="visibility: hidden">Aula 0.9</div>
+  <div id="e470" style="visibility: hidden">Aula 1.0</div>
+  <div id="e480" style="visibility: hidden">Aula 1.1</div>
+  <div id="infoa01" style="visibility: hidden">
+    <h1>Aula 0.1</h1>
+    <p><br><br><br><br><br><br><br></p>
+    <p><ion-icon name="location-outline"></ion-icon>Edificio A · Planta 0</p>
+    <p><ion-icon name="people-circle-outline"></ion-icon>Capacidad: 35 alumnos</p>
+    <p><ion-icon name="time-outline"></ion-icon>Horario:</p>
+    <p> - Lunes  : 08.30 - 10.30</p>
+    <p> - Martes : 10.30 - 09.30</p>
+    <p> - Viernes: 10.30 - 11.30</p>
+    
+  </div>
+  <div id="infoa02" style="visibility: hidden">
+    <h1>Aula 0.2</h1>
+    <p><br><br><br><br><br><br><br></p>
+    <p><ion-icon name="location-outline"></ion-icon>Edificio A · Planta 0</p>
+    <p><ion-icon name="people-circle-outline"></ion-icon>Capacidad: 35 alumnos</p>
+    <p><ion-icon name="time-outline"></ion-icon>Horario:</p>
+    <p> - Lunes  : 08.30 - 10.30</p>
+    <p> - Martes : 10.30 - 09.30</p>
+    <p> - Viernes: 10.30 - 11.30</p>
+    
+  </div>
+  <div id="infoa03" style="visibility: hidden">
+    <h1>Aula 0.3</h1>
+    <p><br><br><br><br><br><br><br></p>
+    <p><ion-icon name="location-outline"></ion-icon>Edificio A · Planta 0</p>
+    <p><ion-icon name="people-circle-outline"></ion-icon>Capacidad: 35 alumnos</p>
+    <p><ion-icon name="time-outline"></ion-icon>Horario:</p>
+    <p> - Lunes  : 08.30 - 10.30</p>
+    <p> - Martes : 10.30 - 09.30</p>
+    <p> - Viernes: 10.30 - 11.30</p>
+    
+  </div>
+  <div id="infoa04" style="visibility: hidden">
+    <h1>Aula 0.4</h1>
+    <p><br><br><br><br><br><br><br></p>
+    <p><ion-icon name="location-outline"></ion-icon>Edificio A · Planta 0</p>
+    <p><ion-icon name="people-circle-outline"></ion-icon>Capacidad: 35 alumnos</p>
+    <p><ion-icon name="time-outline"></ion-icon>Horario:</p>
+    <p> - Lunes  : 08.30 - 10.30</p>
+    <p> - Martes : 10.30 - 09.30</p>
+    <p> - Viernes: 10.30 - 11.30</p>
+    
+  </div>
+  <div id="infoa05" style="visibility: hidden">
+    <h1>Aula 0.5</h1>
+    <p><br><br><br><br><br><br><br></p>
+    <p><ion-icon name="location-outline"></ion-icon>Edificio A · Planta 0</p>
+    <p><ion-icon name="people-circle-outline"></ion-icon>Capacidad: 35 alumnos</p>
+    <p><ion-icon name="time-outline"></ion-icon>Horario:</p>
+    <p> - Lunes  : 08.30 - 10.30</p>
+    <p> - Martes : 10.30 - 09.30</p>
+    <p> - Viernes: 10.30 - 11.30</p>
+    
+  </div>
+  <div id="infoa06" style="visibility: hidden">
+    <h1>Aula 0.6</h1>
+    <p><br><br><br><br><br><br><br></p>
+    <p><ion-icon name="location-outline"></ion-icon>Edificio A · Planta 0</p>
+    <p><ion-icon name="people-circle-outline"></ion-icon>Capacidad: 35 alumnos</p>
+    <p><ion-icon name="time-outline"></ion-icon>Horario:</p>
+    <p> - Lunes  : 08.30 - 10.30</p>
+    <p> - Martes : 10.30 - 09.30</p>
+    <p> - Viernes: 10.30 - 11.30</p>
+    
+  </div>
+  <div id="infoa07" style="visibility: hidden">
+    <h1>Aula 0.7</h1>
+    <p><br><br><br><br><br><br><br></p>
+    <p><ion-icon name="location-outline"></ion-icon>Edificio A · Planta 0</p>
+    <p><ion-icon name="people-circle-outline"></ion-icon>Capacidad: 35 alumnos</p>
+    <p><ion-icon name="time-outline"></ion-icon>Horario:</p>
+    <p> - Lunes  : 08.30 - 10.30</p>
+    <p> - Martes : 10.30 - 09.30</p>
+    <p> - Viernes: 10.30 - 11.30</p>
+    
+  </div>
+  <div id="infoa08" style="visibility: hidden">
+    <h1>Aula 0.8</h1>
+    <p><br><br><br><br><br><br><br></p>
+    <p><ion-icon name="location-outline"></ion-icon>Edificio A · Planta 0</p>
+    <p><ion-icon name="people-circle-outline"></ion-icon>Capacidad: 35 alumnos</p>
+    <p><ion-icon name="time-outline"></ion-icon>Horario:</p>
+    <p> - Lunes  : 08.30 - 10.30</p>
+    <p> - Martes : 10.30 - 09.30</p>
+    <p> - Viernes: 10.30 - 11.30</p>
+    
+  </div>
+  <div id="infoa09" style="visibility: hidden">
+    <h1>Aula 0.9</h1>
+    <p><br><br><br><br><br><br><br></p>
+    <p><ion-icon name="location-outline"></ion-icon>Edificio A · Planta 0</p>
+    <p><ion-icon name="people-circle-outline"></ion-icon>Capacidad: 35 alumnos</p>
+    <p><ion-icon name="time-outline"></ion-icon>Horario:</p>
+    <p> - Lunes  : 08.30 - 10.30</p>
+    <p> - Martes : 10.30 - 09.30</p>
+    <p> - Viernes: 10.30 - 11.30</p>
+    
+  </div>
+  <div id="infoa10" style="visibility: hidden">
+    <h1>Aula 1.0</h1>
+    <p><br><br><br><br><br><br><br></p>
+    <p><ion-icon name="location-outline"></ion-icon>Edificio A · Planta 0</p>
+    <p><ion-icon name="people-circle-outline"></ion-icon>Capacidad: 35 alumnos</p>
+    <p><ion-icon name="time-outline"></ion-icon>Horario:</p>
+    <p> - Lunes  : 08.30 - 10.30</p>
+    <p> - Martes : 10.30 - 09.30</p>
+    <p> - Viernes: 10.30 - 11.30</p>
+    
+  </div>
+  <div id="infoa11" style="visibility: hidden">
+    <h1>Aula 1.1</h1>
+    <p><br><br><br><br><br><br><br></p>
+    <p><ion-icon name="location-outline"></ion-icon>Edificio A · Planta 0</p>
+    <p><ion-icon name="people-circle-outline"></ion-icon>Capacidad: 35 alumnos</p>
+    <p><ion-icon name="time-outline"></ion-icon>Horario:</p>
+    <p> - Lunes  : 08.30 - 10.30</p>
+    <p> - Martes : 10.30 - 09.30</p>
+    <p> - Viernes: 10.30 - 11.30</p>
+    
+  </div>
+
+  <div id="e51" style="visibility: hidden">COMEDOR</div>
+  <div id="e52" style="visibility: hidden">Menu hoy</div>
+  <div id="e53" style="visibility: hidden">Menu mañana</div>
+  <div id="e54" style="visibility: hidden">Horarios</div>
+  <div id="infoc01" style="visibility: hidden">
+    <h1>Menu Hoy</h1>
+  </div>
+  <div id="infoc02" style="visibility: hidden">
+    <h1>Menu Mañana</h1>
+  </div>
+  
+  
+  <script>
+      
+    //<div id="e31" style="visibility: hidden">Volver atras</div>
+
+    //Esta alternativa a lo de la imagen va justo encima de <script>. Son dos lineas por encima
+    //<img src="favicon.png"  onload="resizeImg(this, 150, 150 );">
+
+    //Imagen del logo. Hay comentada una alternativa a lo de la imagen en "resizeImg". buscar las dos apariciones
+    var imagen_logo = document.createElement("img");
+    imagen_logo.src="logo.svg";
+    imagen_logo.width="150";
+    imagen_logo.height="150";
+    imagen_logo.id="img_logo"
+    
+    imagen_logo.style.display="block";
+    imagen_logo.style.margin = "auto";
+    imagen_logo.style.marginTop = "10vh"
+
+    document.body.appendChild(imagen_logo);
+
+
+    var imagen_comedor_hoy = document.createElement("img");
+    imagen_comedor_hoy.src="comedor_hoy.png";
+    imagen_comedor_hoy.width=window.innerWidth*70/100;
+    imagen_comedor_hoy.height=window.innerHeight*50/100;
+    imagen_comedor_hoy.id="img_comedor_hoy"
+    imagen_comedor_hoy.style.visibility="hidden"
+    imagen_comedor_hoy.style.display="block";
+    imagen_comedor_hoy.style.margin = "auto";
+
+
+    document.body.appendChild(imagen_comedor_hoy);
+
+    var imagen_comedor_maniana = document.createElement("img");
+    imagen_comedor_maniana.src="comedor_maniana.png";
+    imagen_comedor_maniana.width=window.innerWidth*70/100;
+    imagen_comedor_maniana.height=window.innerHeight*50/100;
+    imagen_comedor_maniana.id="img_comedor_maniana"
+    imagen_comedor_maniana.style.visibility="hidden"
+    imagen_comedor_maniana.style.display="block";
+    imagen_comedor_maniana.style.margin = "auto";
+
+    document.body.appendChild(imagen_comedor_maniana);
+
+
+    // Store frame for motion functions
+    var paused = false;
+
+    // Setup Leap loop with frame callback function
+    var controllerOptions = {enableGestures: true};
+
+    // creo frame null
+    const localizacion_punto = null;
+
+    //Temporizador para saber cuando hacemos click
+    var timer = 0;
+    var timer_para_gestos = 0;
+
+    //variable que me diga si tengo que recalcular el punto o no
+    var calcular_punto = true
+    //Posicion del punto fijo que sera referencia para saber si estamos pulsando o no
+    var localizacion_punto2 = {
+        x: -1,
+        y: -1
+    }
+
+    //Funcion que modifica el tamaño de una imagen para el logo
+    //Parametros: height y width son el alto y el ancho en vh y vw, respectivamente
+    function resizeImg(img, height, width) {
+        img.height = window.innerHeight*height/100;
+        img.width = window.innerWidth*width/100;
+
+        img.height = height;
+        img.width = width;
+    }
+
+    
+    
+    //En este caso, boton pagina principal "entrar"
+    b11 = function b11(){
+
+        boton_entrar_11.setAttribute("style", "visibility:hidden")
+        imagen_logo.style.visibility = "hidden"
+        texto_descriptivo_12.setAttribute("style", "visibility:hidden")
+
+        boton_mapa.setAttribute("style", "visibility:visible")
+        boton_aulas.setAttribute("style", "visibility:visible")
+        boton_profesorado.setAttribute("style", "visibility:visible")
+        boton_eventos.setAttribute("style", "visibility:visible")
+        boton_comedor.setAttribute("style", "visibility:visible")
+        boton_secretaria.setAttribute("style", "visibility:visible")
+
+        return 2
+        
+    }
+
+    
+
+    //En este caso, ir a la tercera pantalla "mapa"
+    b21 = function b21(){
+
+        boton_mapa.setAttribute("style", "visibility:hidden")
+        boton_aulas.setAttribute("style", "visibility:hidden")
+        boton_profesorado.setAttribute("style", "visibility:hidden")
+        boton_eventos.setAttribute("style", "visibility:hidden")
+        boton_comedor.setAttribute("style", "visibility:hidden")
+        boton_secretaria.setAttribute("style", "visibility:hidden")
+
+        boton_estar_mapa.setAttribute("style", "visibility:visible")
+
+
+        return 3
+
+    }
+
+    //En este caso, volver de la pantalla "mapa" al menu de opciones
+    b31 = function b31(){
+
+        boton_mapa.setAttribute("style", "visibility:visible")
+        boton_aulas.setAttribute("style", "visibility:visible")
+        boton_profesorado.setAttribute("style", "visibility:visible")
+        boton_eventos.setAttribute("style", "visibility:visible")
+        boton_comedor.setAttribute("style", "visibility:visible")
+        boton_secretaria.setAttribute("style", "visibility:visible")
+
+        boton_estar_mapa.setAttribute("style", "visibility:hidden")
+        //boton_volver_atras.setAttribute("style", "visibility:hidden")
+
+        return 2
+
+    }
+
+    //En este caso, boton para pasar del menu a la secciona "aulas"
+    b22 = function b22(){
+
+        boton_mapa.setAttribute("style", "visibility:hidden")
+        boton_aulas.setAttribute("style", "visibility:hidden")
+        boton_profesorado.setAttribute("style", "visibility:hidden")
+        boton_eventos.setAttribute("style", "visibility:hidden")
+        boton_comedor.setAttribute("style", "visibility:hidden")
+        boton_secretaria.setAttribute("style", "visibility:hidden")
+
+        texto_descriptivo_41.setAttribute("style", "visibility:visible")
+        boton_aula01.setAttribute("style", "visibility:visible")
+        boton_aula02.setAttribute("style", "visibility:visible")
+        boton_aula03.setAttribute("style", "visibility:visible")
+
+        boton_aula04.setAttribute("style", "visibility:hidden")
+        boton_aula05.setAttribute("style", "visibility:hidden")
+        boton_aula06.setAttribute("style", "visibility:hidden")
+        boton_aula07.setAttribute("style", "visibility:hidden")
+
+        informacion_aula01.setAttribute("style", "visibility:hidden")
+        informacion_aula02.setAttribute("style", "visibility:hidden")
+        informacion_aula03.setAttribute("style", "visibility:hidden")
+        
+
+        return 41
+
+    }
+
+    //En este caso, boton para pasar del menu a la secciona "comedor"
+    b23 = function b23(){
+
+        boton_mapa.setAttribute("style", "visibility:hidden")
+        boton_aulas.setAttribute("style", "visibility:hidden")
+        boton_profesorado.setAttribute("style", "visibility:hidden")
+        boton_eventos.setAttribute("style", "visibility:hidden")
+        boton_comedor.setAttribute("style", "visibility:hidden")
+        boton_secretaria.setAttribute("style", "visibility:hidden")
+
+        texto_descriptivo_51.setAttribute("style", "visibility:visible")
+        boton_menu_hoy.setAttribute("style", "visibility:visible")
+        boton_menu_maniana.setAttribute("style", "visibility:visible")
+        boton_horario_comedor.setAttribute("style", "visibility:visible")
+
+        informacion_comedor_hoy.setAttribute("style", "visibility:hidden")
+        imagen_comedor_hoy.style.visibility = "hidden"
+
+        informacion_comedor_maniana.setAttribute("style", "visibility:hidden")
+
+        imagen_comedor_maniana.style.visibility = "hidden"
+
+
+        return 51
+
+    }
+
+    //En este caso, boton para pasar a ver el menu de hoy
+    b52 = function b52(){
+
+        informacion_comedor_hoy.setAttribute("style", "visibility:visible")
+        
+        document.body.removeChild(imagen_comedor_maniana)
+        document.body.appendChild(imagen_comedor_hoy)
+        document.body.appendChild(imagen_comedor_maniana)
+        imagen_comedor_hoy.style.visibility = "visible"
+
+        texto_descriptivo_51.setAttribute("style", "visibility:hidden")
+        boton_menu_hoy.setAttribute("style", "visibility:hidden")
+        boton_menu_maniana.setAttribute("style", "visibility:hidden")
+        boton_horario_comedor.setAttribute("style", "visibility:hidden")
+
+        //va a ir mas seguro de darle para atras
+
+        return 521
+
+    }
+
+    //En este caso, boton para pasar a ver el menu de mañana
+    b53 = function b53(){
+
+        informacion_comedor_maniana.setAttribute("style", "visibility:visible")
+        document.body.removeChild(imagen_comedor_hoy)
+        document.body.appendChild(imagen_comedor_maniana)
+        document.body.appendChild(imagen_comedor_hoy)
+        imagen_comedor_maniana.style.visibility = "visible"
+
+        texto_descriptivo_51.setAttribute("style", "visibility:hidden")
+        boton_menu_hoy.setAttribute("style", "visibility:hidden")
+        boton_menu_maniana.setAttribute("style", "visibility:hidden")
+        boton_horario_comedor.setAttribute("style", "visibility:hidden")
+
+        //va a ir mas seguro de darle para atras
+
+        return 521
+
+    }
+
+    //Scroll de las primeras 3 aulas a las 4 siguientes
+    s41 = function s41(){
+
+        boton_aula04.setAttribute("style", "visibility:visible")
+        boton_aula05.setAttribute("style", "visibility:visible")
+        boton_aula06.setAttribute("style", "visibility:visible")
+        boton_aula07.setAttribute("style", "visibility:visible")
+
+        texto_descriptivo_41.setAttribute("style", "visibility:hidden")
+        boton_aula01.setAttribute("style", "visibility:hidden")
+        boton_aula02.setAttribute("style", "visibility:hidden")
+        boton_aula03.setAttribute("style", "visibility:hidden")
+
+        boton_aula08.setAttribute("style", "visibility:hidden")
+        boton_aula09.setAttribute("style", "visibility:hidden")
+        boton_aula10.setAttribute("style", "visibility:hidden")
+        boton_aula11.setAttribute("style", "visibility:hidden")
+
+        informacion_aula04.setAttribute("style", "visibility:hidden")
+        informacion_aula05.setAttribute("style", "visibility:hidden")
+        informacion_aula06.setAttribute("style", "visibility:hidden")
+        informacion_aula07.setAttribute("style", "visibility:hidden")
+
+        return 42
+    }
+
+    //Scroll de las primeras 4 aulas intermedias a las 4 ultimas
+    s42 = function s42(){
+
+        boton_aula04.setAttribute("style", "visibility:hidden")
+        boton_aula05.setAttribute("style", "visibility:hidden")
+        boton_aula06.setAttribute("style", "visibility:hidden")
+        boton_aula07.setAttribute("style", "visibility:hidden")
+
+        boton_aula08.setAttribute("style", "visibility:visible")
+        boton_aula09.setAttribute("style", "visibility:visible")
+        boton_aula10.setAttribute("style", "visibility:visible")
+        boton_aula11.setAttribute("style", "visibility:visible")
+
+        informacion_aula08.setAttribute("style", "visibility:hidden")
+        informacion_aula09.setAttribute("style", "visibility:hidden")
+        informacion_aula10.setAttribute("style", "visibility:hidden")
+        informacion_aula11.setAttribute("style", "visibility:hidden")
+
+        return 430
+    }
+
+    function volver_atras(pantalla){
+        
+        console.log("voy a volver atras y he recibido ", pantalla)
+        //Estamos en una pantalla normal y no es la principal
+        if(pantalla > 1 && pantalla.toString().length== 1){
+
+            elemento_dentro = 1
+            id = "e"+pantalla+elemento_dentro
+            objeto = document.getElementById(id)
+
+            //Recorremos todos los botones de esa pantalla para ver sobre cual estamos
+            while(objeto != null){
+            
+                objeto.setAttribute("style", "visibility:hidden")
+
+                elemento_dentro++
+
+                id = "e"+pantalla+elemento_dentro
+                objeto = document.getElementById(id)
+
+            }
+
+            elemento_dentro = 1
+            if(pantalla == 2){
+                pantalla_previa = 1
+            }else{
+                pantalla_previa = 2
+            }
+            
+            id = "e"+pantalla_previa+elemento_dentro
+            objeto = document.getElementById(id)
+
+            //Recorremos todos los botones de esa pantalla para ver sobre cual estamos
+            while(objeto != null){
+                
+                let coords = objeto.getBoundingClientRect();
+                objeto.setAttribute("style", "visibility:visible")
+
+                elemento_dentro++
+
+                id = "e"+pantalla_previa+elemento_dentro
+                objeto = document.getElementById(id)
+
+            }
+
+            if(pantalla_previa==1){
+                imagen_logo.style.visibility = "visible"
+            }
+
+            return pantalla_previa
+
+        }else if (pantalla.toString().length == 2 && pantalla.toString()[1]==2){
+            
+            return window["b2"+(Number(pantalla.toString()[0]) - 2)]()
+
+        }else if (pantalla.toString().length == 2 && pantalla.toString()[1]>2){
+            
+            return scroll(Number(pantalla.toString()[0] + (Number(pantalla.toString[1]) - 2).toString() ))
+
+        }else if (pantalla.toString().length == 2 && pantalla.toString()[1]==1){
+            
+            return volver_atras(Number(pantalla.toString()[0]))
+
+        }else if (pantalla.toString().length == 3 && pantalla.toString()[2]==1){
+            
+            if(pantalla.toString()[1]<5){
+                return window["b2"+(Number(pantalla.toString()[0]) - 2)]()
+            }else{
+                pantalla_destino = pantalla.toString()[0] + pantalla.toString()[2]
+          
+                return scroll(Number(pantalla_destino))
+            }
+
+        }else if (pantalla.toString().length == 4 && pantalla.toString()[3]==1){
+            
+            pantalla_destino = pantalla.toString()[0] + "2"
+          
+            return scroll(Number(pantalla_destino))
+
+        }else if (pantalla.toString().length == 3 && pantalla.toString()[2]==0){
+                        
+            pantalla_destino = pantalla.toString()[0] + "1"
+            return scroll(Number(pantalla_destino))
+
+        }else{
+            return pantalla
+        }
+
+    }
+
+    
+
+    function informacion_aula(id){
+
+        switch (id) {
+            case "e42":
+            boton_aula01.setAttribute("style", "visibility:hidden")
+            boton_aula02.setAttribute("style", "visibility:hidden")
+            boton_aula03.setAttribute("style", "visibility:hidden")
+            texto_descriptivo_41.setAttribute("style", "visibility:hidden")
+
+            informacion_aula01.setAttribute("style", "visibility:visible")
+                
+            break;
+            case "e43":
+            boton_aula01.setAttribute("style", "visibility:hidden")
+            boton_aula02.setAttribute("style", "visibility:hidden")
+            boton_aula03.setAttribute("style", "visibility:hidden")
+            texto_descriptivo_41.setAttribute("style", "visibility:hidden")
+
+            informacion_aula02.setAttribute("style", "visibility:visible")
+                
+            break;
+            case "e44":
+            boton_aula01.setAttribute("style", "visibility:hidden")
+            boton_aula02.setAttribute("style", "visibility:hidden")
+            boton_aula03.setAttribute("style", "visibility:hidden")
+            texto_descriptivo_41.setAttribute("style", "visibility:hidden")
+
+            informacion_aula03.setAttribute("style", "visibility:visible")
+                
+            break;
+            case "e45":
+            boton_aula04.setAttribute("style", "visibility:hidden")
+            boton_aula05.setAttribute("style", "visibility:hidden")
+            boton_aula06.setAttribute("style", "visibility:hidden")
+            boton_aula07.setAttribute("style", "visibility:hidden")
+
+            informacion_aula04.setAttribute("style", "visibility:visible")
+                
+            break;
+            case "e46":
+            
+            boton_aula04.setAttribute("style", "visibility:hidden")
+            boton_aula05.setAttribute("style", "visibility:hidden")
+            boton_aula06.setAttribute("style", "visibility:hidden")
+            boton_aula07.setAttribute("style", "visibility:hidden")
+
+            informacion_aula05.setAttribute("style", "visibility:visible")
+                
+            break;
+            case "e47":
+            boton_aula04.setAttribute("style", "visibility:hidden")
+            boton_aula05.setAttribute("style", "visibility:hidden")
+            boton_aula06.setAttribute("style", "visibility:hidden")
+            boton_aula07.setAttribute("style", "visibility:hidden")
+
+            informacion_aula06.setAttribute("style", "visibility:visible")
+                
+            break;
+            case "e48":
+            boton_aula04.setAttribute("style", "visibility:hidden")
+            boton_aula05.setAttribute("style", "visibility:hidden")
+            boton_aula06.setAttribute("style", "visibility:hidden")
+            boton_aula07.setAttribute("style", "visibility:hidden")
+
+            informacion_aula07.setAttribute("style", "visibility:visible")
+                
+            break;
+            case "e450":
+            boton_aula08.setAttribute("style", "visibility:hidden")
+            boton_aula09.setAttribute("style", "visibility:hidden")
+            boton_aula10.setAttribute("style", "visibility:hidden")
+            boton_aula11.setAttribute("style", "visibility:hidden")
+
+            informacion_aula08.setAttribute("style", "visibility:visible")
+                
+            break;
+            case "e460":
+            boton_aula08.setAttribute("style", "visibility:hidden")
+            boton_aula09.setAttribute("style", "visibility:hidden")
+            boton_aula10.setAttribute("style", "visibility:hidden")
+            boton_aula11.setAttribute("style", "visibility:hidden")
+
+            informacion_aula09.setAttribute("style", "visibility:visible")
+                
+            break;
+            case "e470":
+            boton_aula08.setAttribute("style", "visibility:hidden")
+            boton_aula09.setAttribute("style", "visibility:hidden")
+            boton_aula10.setAttribute("style", "visibility:hidden")
+            boton_aula11.setAttribute("style", "visibility:hidden")
+
+            informacion_aula10.setAttribute("style", "visibility:visible")
+                
+            break;
+            case "e480":
+            boton_aula08.setAttribute("style", "visibility:hidden")
+            boton_aula09.setAttribute("style", "visibility:hidden")
+            boton_aula10.setAttribute("style", "visibility:hidden")
+            boton_aula11.setAttribute("style", "visibility:hidden")
+
+            informacion_aula11.setAttribute("style", "visibility:visible")
+                
+            break;
+            default:
+        }
+
+    }
+
+    function scroll(pantalla){
+    
+        console.log("he ido a hacer scroll y he recibido ", pantalla)
+
+        //Si es una pantalla en la que se pueda hacer scroll
+        if(pantalla.toString().length == 2){
+            
+            return window["s"+Number(pantalla.toString()[0])+Number(pantalla.toString()[1])]()
+                  
+        
+        }else{
+            return pantalla
+        }
+
+    }
+
+    function controlador_funciones(id){
+
+        if(id[1] == 4 && id[2]>1){
+            informacion_aula(id)
+            
+            pantalla = ""
+            for(var i = 1; i < id.length; i++){
+                pantalla += id[i]
+            }
+            
+            pantalla += "1"
+            
+            return Number(pantalla)
+
+        }else{
+            num_funcion = id[1]+id[2]
+
+            return window["b"+num_funcion]()
+
+        }     
+        
+        
+    }
+
+
+    //Funcion que nos dira sobre que boton estamos cuando pulsamos
+    function sobre_que_boton(pantalla, pos_actual_x, pos_actual_y){
+
+        if(pantalla.toString().length == 1){
+
+            //Sacamos el id dependiendo de la pantalla en la que estemos
+            elemento_dentro = 1
+            id = "e"+pantalla+elemento_dentro
+            console.log(id)
+            objeto = document.getElementById(id)
+
+            //Recorremos todos los botones de esa pantalla para ver sobre cual estamos
+            while(objeto != null){
+                
+                let coords = objeto.getBoundingClientRect();
+
+                distancia_vh = coords.y*100/window.innerHeight
+                distancia_vw = coords.x*100/window.innerWidth
+
+                tamanio_vh = objeto.clientHeight*100/window.innerHeight
+                tamanio_vw = objeto.clientWidth*100/window.innerWidth
+
+                if (pos_actual_y < (distancia_vh+tamanio_vh) &&  pos_actual_y > (distancia_vh) && 
+                    pos_actual_x < (distancia_vw+tamanio_vw) &&  pos_actual_x > (distancia_vw )){
+
+                        return id
+
+                }
+
+                elemento_dentro++
+
+                id = "e"+pantalla+elemento_dentro
+                objeto = document.getElementById(id)
+
+            }
+
+        }else if(pantalla.toString().length == 2){
+
+            //Sacamos el id dependiendo de la pantalla en la que estemos
+            elemento_dentro = 1 + (Number(pantalla.toString()[1])-1)*4
+            id = "e"+Number(pantalla.toString()[0])+elemento_dentro
+            
+            objeto = document.getElementById(id)
+            var contador = 0
+
+            //Recorremos todos los botones de esa pantalla para ver sobre cual estamos
+            while(objeto != null && contador<4){
+                
+                let coords = objeto.getBoundingClientRect();
+
+                distancia_vh = coords.y*100/window.innerHeight
+                distancia_vw = coords.x*100/window.innerWidth
+
+                tamanio_vh = objeto.clientHeight*100/window.innerHeight
+                tamanio_vw = objeto.clientWidth*100/window.innerWidth
+
+                if (pos_actual_y < (distancia_vh+tamanio_vh) &&  pos_actual_y > (distancia_vh) && 
+                    pos_actual_x < (distancia_vw+tamanio_vw) &&  pos_actual_x > (distancia_vw )){
+
+                        return id
+
+                }
+
+                elemento_dentro++
+
+                id = "e"+pantalla.toString()[0]+elemento_dentro
+                objeto = document.getElementById(id)
+                contador++;
+
+            }
+
+        }else if(pantalla.toString().length == 3){
+
+            //Sacamos el id dependiendo de la pantalla en la que estemos
+            elemento_dentro = 1 + (Number(pantalla.toString()[1])-2)*4
+            id = "e"+Number(pantalla.toString()[0])+elemento_dentro+"0"
+            
+            objeto = document.getElementById(id)
+            var contador = 0
+
+            //Recorremos todos los botones de esa pantalla para ver sobre cual estamos
+            while(objeto != null && contador<4){
+                
+                let coords = objeto.getBoundingClientRect();
+
+                distancia_vh = coords.y*100/window.innerHeight
+                distancia_vw = coords.x*100/window.innerWidth
+
+                tamanio_vh = objeto.clientHeight*100/window.innerHeight
+                tamanio_vw = objeto.clientWidth*100/window.innerWidth
+                console.log("El id que estoy buscando ",  id)
+                if (pos_actual_y < (distancia_vh+tamanio_vh) &&  pos_actual_y > (distancia_vh) && 
+                    pos_actual_x < (distancia_vw+tamanio_vw) &&  pos_actual_x > (distancia_vw )){
+                        
+                        return id
+
+                }
+
+                elemento_dentro++
+
+                id = "e"+pantalla.toString()[0]+elemento_dentro+"0"
+                objeto = document.getElementById(id)
+                contador++;
+
+            }
+        }
+
+        
+ 
+
+    }
+
+    
+
+    var estoy_en_pantalla = 1
+
+    Leap.loop(controllerOptions, function(frame) {
+        if (paused) {
+            return; // Skip this update
+        }
+
+        
+
+        //Este objeto es el punto azul
+        p = document.getElementById("pointer")
+
+        //Pantalla principal
+        boton_entrar_11 = document.getElementById("e11")
+        texto_descriptivo_12 = document.getElementById("e12")
+
+        //Segunda pantalla con el menu de opciones
+        boton_mapa = document.getElementById("e21")
+        boton_aulas = document.getElementById("e22")
+        boton_comedor = document.getElementById("e23")
+        boton_profesorado = document.getElementById("e24")
+        boton_eventos = document.getElementById("e25")
+        boton_secretaria = document.getElementById("e26")
+
+        //Tercera pantalla "mapa"        
+        boton_estar_mapa = document.getElementById("e31")
+        
+        //Cuarta pantalla "aulas"
+        texto_descriptivo_41 = document.getElementById("e41")
+        boton_aula01 = document.getElementById("e42")
+        boton_aula02 = document.getElementById("e43")
+        boton_aula03 = document.getElementById("e44")
+        boton_aula04 = document.getElementById("e45")
+        boton_aula05 = document.getElementById("e46")
+        boton_aula06 = document.getElementById("e47")
+        boton_aula07 = document.getElementById("e48")
+        boton_aula08 = document.getElementById("e450")
+        boton_aula09 = document.getElementById("e460")
+        boton_aula10 = document.getElementById("e470")
+        boton_aula11 = document.getElementById("e480")
+
+        informacion_aula01 = document.getElementById("infoa01")
+        informacion_aula02 = document.getElementById("infoa02")
+        informacion_aula03 = document.getElementById("infoa03")
+        informacion_aula04 = document.getElementById("infoa04")
+        informacion_aula05 = document.getElementById("infoa05")
+        informacion_aula06 = document.getElementById("infoa06")
+        informacion_aula07 = document.getElementById("infoa07")
+        informacion_aula08 = document.getElementById("infoa08")
+        informacion_aula09 = document.getElementById("infoa09")
+        informacion_aula10 = document.getElementById("infoa10")
+        informacion_aula11 = document.getElementById("infoa11")
+
+        //Quinta pantalla "comedor"
+        texto_descriptivo_51 = document.getElementById("e51")
+        boton_menu_hoy = document.getElementById("e52")
+        boton_menu_maniana = document.getElementById("e53")
+        boton_horario_comedor = document.getElementById("e54")
+        informacion_comedor_hoy = document.getElementById("infoc01")
+        informacion_comedor_maniana = document.getElementById("infoc02")
+        informacion_comedor_calendario = document.getElementById("infoc03")
+        
+
+        //Si hay alguna mano detectada
+        if (frame.hands.length == 0) {
+    
+            console.log("hola")
+
+            //Creamos una mano (con esto solo podemos leer una mano, si son dos poner esto en un bucle hasta frame.hands.length)
+            var hand = frame.hands[0];
+
+            //Dedo indice
+            var pointable = hand.pointables[1]
+
+            //Lo siguiente muestra las coordenadas del indice
+            //console.log(pointable.tipPosition)
+            var coord = {
+                x: 100*(pointable.tipPosition[0]/100 +1), //0-165
+                y: (110-100*(pointable.tipPosition[1]/300))
+            }
+
+            if(coord.y > 100){
+                coord.y = 100
+            }else if(coord.y < 0 ){
+                coord.y = 0
+            }
+
+            if(coord.x > 100){
+                coord.x = 100
+            }else if(coord.x < 0 ){
+                coord.x = 0
+            }
+
+            //Muestra el punto en el centro
+            p.setAttribute("style", "visibility:visible")
+            
+            //Actualiza la posicion del punto cuando movemos el dedo
+            p.style.top = coord.y+"vh"
+            p.style.left = coord.x+"vw"
+
+
+            //Si hay que calcular el punto, lo hacemos
+            if(calcular_punto){
+                localizacion_punto2.x = pointable.tipPosition[0]
+                localizacion_punto2.y = pointable.tipPosition[1]
+                calcular_punto = false
+                timer = 0;
+            }
+
+            var pos_actual = {
+                x: pointable.tipPosition[0],
+                y: pointable.tipPosition[1]
+            }
+            
+            if (pos_actual.x > localizacion_punto2.x + 10 || pos_actual.x < localizacion_punto2.x - 10 || pos_actual.y > localizacion_punto2.y + 10 || pos_actual.y < localizacion_punto2.y - 10 ) {
+                timer = 0;
+                calcular_punto = true;
+            } else {
+                if (timer > 2000) {
+                    
+                    timer = -2000;
+                    
+                    id = sobre_que_boton(estoy_en_pantalla, coord.x, coord.y)
+                    console.log(id)
+                    if(id != null){
+                        
+                        estoy_en_pantalla = controlador_funciones(id)
+
+                    }        
+                    console.log("Estoy en la pantalla:", estoy_en_pantalla) 
+                    
+                }
+            }
+            
+            //Vector para el id de los dedos (para detectar indice)
+            var fingerIds = [];
+            
+            
+            //Metemos los indices de los dedos
+            for (var j = 0; j < hand.pointables.length; j++) {
+                var pointable2 = hand.pointables[j];
+                fingerIds.push(pointable2.id);
+            }
+
+            //El numero de dedos detectados es:
+            //console.log(fingerIds.length)       
+
+        }else{
+            //Esconde el punto
+            p.setAttribute("style", "visibility:hidden")
+        }
+
+
+    
+        // Display Gesture object data
+        var gestureOutput = document.getElementById("gestureData");
+        var gestureString = "";
+        if (frame.gestures.length > 0) {
+            for (var i = 0; i < frame.gestures.length; i++) {
+                var gesture = frame.gestures[i];
+
+                switch (gesture.type) {
+                    case "circle":
+                        if(timer_para_gestos > 1500){
+                            estoy_en_pantalla = volver_atras(estoy_en_pantalla)
+                            timer_para_gestos = 0
+                        }
+                        
+                    break;
+                    case "swipe":
+                        if(timer_para_gestos > 1500){
+                            
+                            estoy_en_pantalla = scroll(estoy_en_pantalla)
+                            timer_para_gestos = 0
+                        }
+                    break;
+                    case "screenTap":
+                        console.log("has tocado la pantalla maquina")
+                    case "keyTap":
+                        console.log("has tocado una tecla maquina")
+                    break;
+                    default:
+                    gestureString += "unkown gesture type";
+                }
+            }
+        }
+
+        
+    })  
+
+    
+    
+    
+  </script>
+
+  <script>
+      setInterval(() => {
+        timer += 200;
+      }, 200);
+  </script>
+  <script>
+    setInterval(() => {
+      timer_para_gestos += 200;
+    }, 200);
+</script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+</body>
+
+</html>
