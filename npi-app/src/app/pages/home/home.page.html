@@ -1,10 +1,17 @@
-<div class="home-page home-page-search" *ngIf="true">
+<div class="home-page home-page-search">
   <div class="home-icon">
     <img src="../../../assets/icon/icon.svg">
   </div>
   <div class="home-search">
     <div class="home-search-bar">
       <ion-searchbar class="npi-searchbar" placeholder="Escriba para buscar..." (ionChange)="search($event.target.value)" showClearIcon="always" clearIcon="close-outline"></ion-searchbar>
+    </div>
+    <div class="home-speech-recognition">
+      <strong>Recognized: </strong>
+      <span>{{message}}</span>
+      <br>
+      <strong>Is recording: </strong>
+      <span>{{isRecording}}</span>
     </div>
     <div class="home-search-results" *ngIf="searchShow.length > 0">
       <div class="result-box">
@@ -34,21 +41,8 @@
   </div>
 </div>
 
-<div class="home-page home-page-scan" *ngIf="false">
-
-</div>
-
-<div class="home-page home-page-365" *ngIf="false">
-
-</div>
-
-<div class="home-page home-page-notification" *ngIf="false">
-
-</div>
-
-<!--<ion-avatar class="main_avatar">
-  <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-</ion-avatar>
-
-<ion-searchbar class="prueba" showCancelButton="focus"></ion-searchbar>-->
-
+<ion-fab (click)="startSpeechRecognition()" vertical="bottom" horizontal="center" slot="fixed">
+  <ion-fab-button [color]="isRecording ? 'danger' : 'warning'">
+    <ion-icon name="mic"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

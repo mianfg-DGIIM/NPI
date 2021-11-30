@@ -1,19 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { NavController, Platform, ModalController } from '@ionic/angular';
 
 import { ApiService } from '../../services/api/api.service';
+import { LocalService } from '../../services/local/local.service';
 
 import { PoiDetailPage } from '../poi-detail/poi-detail.page';
 import { HelpPage } from '../help/help.page';
-
-// accelerometer
-import { DeviceMotion, DeviceMotionAccelerationData } from '@ionic-native/device-motion/ngx';
-import { DeviceOrientation, DeviceOrientationCompassHeading } from '@ionic-native/device-orientation/ngx';
 // shake
 import { Shake } from '@ionic-native/shake/ngx';
-// qr
-import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
-import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser/ngx';
+// speech recognition
+import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
 
 @Component({
   selector: 'app-home',
@@ -21,9 +17,8 @@ import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser/
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  private deviceMotionData : any;
-  private deviceOrientationData : any;
-  private shakeTrigger : boolean = true;
+  private isRecording: boolean = false;
+  private message: string;
 
   private searchInfo = [];
   private searchShow = [];
@@ -31,42 +26,26 @@ export class HomePage implements OnInit {
   constructor(
     private modalCtrl: ModalController,
     private apiSrv: ApiService,
-    private deviceMotion: DeviceMotion,
-    private deviceOrientation: DeviceOrientation,
+    private localSrv: LocalService,
     private shake: Shake,
-    private iab: InAppBrowser
+    private speechRecognition: SpeechRecognition,
+    public navCtrl: NavController
   ) {}
 
   async ngOnInit() {
+    this.getSpeechPermission();
     this.searchInfo = this.apiSrv.getPois();
-    // accelerometer
-    /*this.deviceMotion.getCurrentAcceleration().then(
-      (acceleration: DeviceMotionAccelerationData) => console.log(acceleration),
-      (error: any) => console.log(error)
-    );
-    var deviceMotionSubscription = this.deviceMotion.watchAcceleration({frequency: 200}).subscribe((data: DeviceMotionAccelerationData) => {
-      this.deviceMotionData = data;
-      console.log(this.deviceMotionData)
-    });
-    // accelerationSubscription.unsubscribe();
-
-    this.deviceOrientation.getCurrentHeading().then(
-      (data: DeviceOrientationCompassHeading) => console.log(data),
-      (error: any) => console.log(error)
-    );
-    var deviceOrientationSubscription = this.deviceOrientation.watchHeading().subscribe((data: DeviceOrientationCompassHeading) => {
-      this.deviceOrientationData = data;
-      console.log(this.deviceOrientationData);
-    });*/
 
     // accelerometer
     var shakeSubscription = this.shake.startWatch(30).subscribe(async () => {
-      const modal = await this.modalCtrl.create({
-        component: HelpPage,
-        cssClass: 'modal-quarter-space',
-        animated: true,
-      });
-      return await modal.present();
+      if (!this.localSrv.getHelpShown()) {
+        const modal = await this.modalCtrl.create({
+          component: HelpPage,
+          cssClass: 'modal-quarter-space',
+          animated: true,
+        });
+        return await modal.present();
+      }
     });
   }
 
@@ -93,5 +72,26 @@ export class HomePage implements OnInit {
       }
     });
     return await modal.present();
+  }
+
+  public getSpeechPermission() {
+    this.speechRecognition.hasPermission().then((hasPermission: boolean) => {
+      if (!hasPermission) {
+        this.speechRecognition.requestPermission();
+      }
+    });
+  }
+
+  public startSpeechRecognition() {
+    this.isRecording = true;
+    let options = {
+      language: 'es-ES',
+      matches: 1,
+      showPopup: false
+    }
+    this.speechRecognition.startListening(options).subscribe(matches => {
+      this.message = matches[0];
+      this.isRecording = false;
+    });
   }
 }

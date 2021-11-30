@@ -104,5 +104,21 @@ Es posible que debas instalar `jetifier` antes, en cuyo caso te lo indicará dir
 
 Cambia la IP de la app, usando
 
-````
+```
+ionic cap run android -l --host=[insertar IP aquí]
+```
 
+
+##### No funciona el servicio de reconocimiento de voz
+
+Añade dentro de la etiqueta `<manifest>` en `android/app/src/main/AndroidManifest.xml`:
+
+```
+<queries>
+   <intent>
+      <action android:name="android.speech.RecognitionService" />
+   </intent>
+</queries>
+```
+
+Debes de ejecutar el comando de `ionic` **después** de haber guardado los cambios.

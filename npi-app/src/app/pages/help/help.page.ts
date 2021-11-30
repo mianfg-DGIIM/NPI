@@ -32,9 +32,11 @@ export class HelpPage implements OnInit {
 
   ngOnInit(): void {
     this.info = this.apiSrv.getPoi(this.id);
+    this.localSrv.setHelpShown(true);
   }
 
   public async closeModal(): Promise<void> {
+    this.localSrv.setHelpShown(false);
     await this.modalCtrl.dismiss({
       dismissed: true
     });

@@ -13,6 +13,7 @@ import { DeviceOrientation } from '@ionic-native/device-orientation/ngx';
 import { Shake } from '@ionic-native/shake/ngx';
 import { QRScanner } from '@ionic-native/qr-scanner/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -26,7 +27,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
     DeviceOrientation,
     Shake,
     QRScanner,
-    InAppBrowser
+    InAppBrowser,
+    SpeechRecognition
   ],
   bootstrap: [AppComponent],
 })

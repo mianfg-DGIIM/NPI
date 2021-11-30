@@ -37,9 +37,6 @@
 }
 
 .result {
-  &-box {
-  }
-
   &-item {
     display: flex;
     padding: 12px;
@@ -157,4 +154,8 @@
 .ripple-parent {
   position: relative;
   overflow: hidden;
+}
+
+ion-fab {
+  margin-bottom: 40px;
 }
