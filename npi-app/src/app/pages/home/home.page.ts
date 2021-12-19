@@ -6,6 +6,7 @@ import { LocalService } from '../../services/local/local.service';
 
 import { PoiDetailPage } from '../poi-detail/poi-detail.page';
 import { HelpPage } from '../help/help.page';
+
 // shake
 import { Shake } from '@ionic-native/shake/ngx';
 // speech recognition

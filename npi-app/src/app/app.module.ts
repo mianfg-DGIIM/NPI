@@ -14,6 +14,7 @@ import { Shake } from '@ionic-native/shake/ngx';
 import { QRScanner } from '@ionic-native/qr-scanner/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
+import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -28,7 +29,8 @@ import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
     Shake,
     QRScanner,
     InAppBrowser,
-    SpeechRecognition
+    SpeechRecognition,
+    TextToSpeech
   ],
   bootstrap: [AppComponent],
 })
