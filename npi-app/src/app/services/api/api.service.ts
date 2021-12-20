@@ -119,6 +119,244 @@ export class ApiService {
           end: '20:00'
         }
       ]
+    },
+    {
+      id: 6,
+      type: 'AULA',
+      icon: 'business',
+      name: 'Aula 1.1',
+      building: 'A',
+      floor: '1',
+      room: '1',
+      capacity: 87,
+      available: 15,
+      schedule: {
+        before: {
+          start: '11:00',
+          end: '13:00',
+          title: 'Visión por Computador',
+          description: 'Grado en Ingeniería Informática'
+        },
+        now: {
+          start: '09:00',
+          end: '11:00',
+          title: 'Nuevos Paradigmas de Interacción',
+          description: 'Grado en Ingeniería Informática'
+        },
+        after: {
+          start: '08:00',
+          end: '10:00',
+          title: 'Procesadores de Lenguajes',
+          description: 'Grado en Ingeniería Informática'
+        }
+      },
+      scheduleType: 'TITLED',
+      image: 'https://etsiit.ugr.es/sites/centros/etsiit/public/gallery/contenido_atemporal/aula-1-etsiit_atemporal.jpg'
+    },
+    {
+      id: 7,
+      type: 'AULA',
+      icon: 'business',
+      name: 'Aula 1.2',
+      building: 'A',
+      floor: '1',
+      room: '2',
+      capacity: 74,
+      available: 15,
+      schedule: {
+        before: {
+          start: '09:00',
+          end: '13:00',
+          title: 'Fundamentos de la Programacion',
+          description: 'Grado en Ingeniería Informática'
+        },
+        now: {
+          start: '09:00',
+          end: '11:00',
+          title: 'Sistemas Concurrentes y Distribuidos',
+          description: 'Grado en Ingeniería Informática'
+        },
+        after: {
+          start: '08:00',
+          end: '14:00',
+          title: 'Fundamentos del Software',
+          description: 'Grado en Ingeniería Informática'
+        }
+      },
+      scheduleType: 'TITLED',
+      image: 'https://etsiit.ugr.es/sites/centros/etsiit/public/gallery/contenido_atemporal/aula-1-etsiit_atemporal.jpg'
+    },
+    {
+      id: 8,
+      type: 'AULA',
+      icon: 'business',
+      name: 'Aula 2.1',
+      building: 'A',
+      floor: '2',
+      room: '1',
+      capacity: 43,
+      available: 15,
+      schedule: {
+        before: {
+          start: '12:00',
+          end: '13:00',
+          title: 'Visión por Computador',
+          description: 'Grado en Ingeniería Informática'
+        },
+        now: {
+          start: '09:00',
+          end: '11:00',
+          title: 'Arquitectura de Computadores',
+          description: 'Grado en Ingeniería Informática'
+        },
+        after: {
+          start: '12:00',
+          end: '13:00',
+          title: 'Visión por Computador',
+          description: 'Grado en Ingeniería Informática'
+        }
+      },
+      scheduleType: 'TITLED',
+      image: 'https://etsiit.ugr.es/sites/centros/etsiit/public/gallery/contenido_atemporal/aula-1-etsiit_atemporal.jpg'
+    },
+    {
+      id: 9,
+      type: 'AULA',
+      icon: 'business',
+      name: 'Aula 2.2',
+      building: 'A',
+      floor: '2',
+      room: '2',
+      capacity: 38,
+      available: 15,
+      schedule: {
+        before: {
+          start: '16:00',
+          end: '18:00',
+          title: 'Estructura de Computadores',
+          description: 'Grado en Ingeniería Informática'
+        },
+        now: {
+          start: '09:00',
+          end: '11:00',
+          title: 'Algebra',
+          description: 'Grado en Ingeniería Informática'
+        },
+        after: {
+          start: '10:00',
+          end: '11:00',
+          title: 'Calculo',
+          description: 'Grado en Ingeniería Informática'
+        }
+      },
+      scheduleType: 'TITLED',
+      image: 'https://etsiit.ugr.es/sites/centros/etsiit/public/gallery/contenido_atemporal/aula-1-etsiit_atemporal.jpg'
+    },
+    {
+      id: 10,
+      type: 'AULA',
+      icon: 'business',
+      name: 'Aula 3.1',
+      building: 'A',
+      floor: '3',
+      room: '1',
+      capacity: 30,
+      available: 15,
+      schedule: {
+        before: {
+          start: '11:00',
+          end: '14:00',
+          title: 'Tecnologias y Organizacion de Computadores',
+          description: 'Grado en Ingeniería Informática'
+        },
+        now: {
+          start: '11:00',
+          end: '14:00',
+          title: 'Sistemas Operativos',
+          description: 'Grado en Ingeniería Informática'
+        },
+        after: {
+          start: '11:00',
+          end: '14:00',
+          title: 'Tecnologias y Organizacion de Computadores',
+          description: 'Grado en Ingeniería Informática'
+        }
+      },
+      scheduleType: 'TITLED',
+      image: 'https://etsiit.ugr.es/sites/centros/etsiit/public/gallery/contenido_atemporal/aula-1-etsiit_atemporal.jpg'
+    },
+    {
+      id: 11,
+      type: 'AULA',
+      icon: 'business',
+      name: 'Aula 3.2',
+      building: 'A',
+      floor: '3',
+      room: '2',
+      capacity: 45,
+      available: 15,
+      schedule: {
+        before: {
+          start: '11:00',
+          end: '13:00',
+          title: 'Aprendizaje Automático',
+          description: 'Grado en Ingeniería Informática'
+        },
+        now: {
+          start: '17:00',
+          end: '18:00',
+          title: 'Inteligencia de Negocio',
+          description: 'Grado en Ingeniería Informática'
+        },
+        after: {
+          start: '11:00',
+          end: '14:00',
+          title: 'Modelos de Computacion',
+          description: 'Grado en Ingeniería Informática'
+        }
+      },
+      scheduleType: 'TITLED',
+      image: 'https://etsiit.ugr.es/sites/centros/etsiit/public/gallery/contenido_atemporal/aula-1-etsiit_atemporal.jpg'
+    },
+    {
+      id: 12,
+      type: 'CONSERJERIA',
+      icon: 'briefcase',
+      name: 'Conserjeria',
+      building: 'D',
+      floor: '0',
+      schedule: [
+        {
+          day: 'lunes-viernes',
+          start: '80:30',
+          end: '14:00'
+        },
+        {
+          day: 'lunes-jueves',
+          start: '16:00',
+          end: '20:00'
+        }
+      ]
+    },
+    {
+      id: 13,
+      type: 'CAFETERIA',
+      icon: 'briefcase',
+      name: 'Cafeteria',
+      building: 'D',
+      floor: '-1',
+      schedule: [
+        {
+          day: 'lunes-viernes',
+          start: '80:30',
+          end: '14:00'
+        },
+        {
+          day: 'lunes-jueves',
+          start: '16:00',
+          end: '20:00'
+        }
+      ]
     }
   ]
 
