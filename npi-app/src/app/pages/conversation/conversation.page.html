@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            <ion-icon name="accessibility"></ion-icon> Walk Assistant
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<div class="messages">
+    <ion-content [scrollEvents]="true" class="imessage" #imessage>
+        <div [className]="item.answer ? 'from-them' : 'from-me'" *ngFor="let item of messages">
+          <p class="message-content">{{item.text}}</p>
+        </div>
+    </ion-content>
+</div>
+
+<ion-footer class="footer">
+    <ion-button size="medium" color="medium" *ngIf="microphone" (click)="triggerMicrophone()"><ion-icon name="text" fill="outline"></ion-icon></ion-button>
+    <ion-item class="footer-text" *ngIf="!microphone">
+        <ion-input name="Input1" placeholder="Escribe tu mensaje..." [(ngModel)]="myMessage">
+        </ion-input>
+        <ion-button size="medium" color="warning" item-right (click)="sendMessage(false)"><ion-icon name="send"></ion-icon></ion-button>
+        <ion-button size="medium" color="medium" item-right (click)="triggerMicrophone()"><ion-icon name="mic"></ion-icon></ion-button>
+    </ion-item>
+</ion-footer>
+
+<ion-fab (click)="startSpeechRecognition()" vertical="bottom" horizontal="center" slot="fixed" *ngIf="microphone">
+    <ion-fab-button [color]="isRecording ? 'danger' : 'warning'">
+        <ion-icon name="mic"></ion-icon>
+    </ion-fab-button>
+</ion-fab>
+  

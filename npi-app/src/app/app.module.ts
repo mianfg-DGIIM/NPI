@@ -14,13 +14,19 @@ import { Shake } from '@ionic-native/shake/ngx';
 import { QRScanner } from '@ionic-native/qr-scanner/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
+import { HTTP } from '@awesome-cordova-plugins/http/ngx';
+import { TextToSpeechAdvanced } from '@awesome-cordova-plugins/text-to-speech-advanced/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot({
-    mode: 'ios'
-  }), AppRoutingModule,
-    PoiDetailPageModule],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot({mode: 'ios'}),
+    AppRoutingModule,
+    PoiDetailPageModule,
+    AppRoutingModule
+  ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     DeviceMotion,
@@ -28,7 +34,9 @@ import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
     Shake,
     QRScanner,
     InAppBrowser,
-    SpeechRecognition
+    SpeechRecognition,
+    HTTP,
+    TextToSpeechAdvanced
   ],
   bootstrap: [AppComponent],
 })

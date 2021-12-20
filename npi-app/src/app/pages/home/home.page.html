@@ -6,13 +6,6 @@
     <div class="home-search-bar">
       <ion-searchbar class="npi-searchbar" placeholder="Escriba para buscar..." (ionChange)="search($event.target.value)" showClearIcon="always" clearIcon="close-outline"></ion-searchbar>
     </div>
-    <div class="home-speech-recognition">
-      <strong>Recognized: </strong>
-      <span>{{message}}</span>
-      <br>
-      <strong>Is recording: </strong>
-      <span>{{isRecording}}</span>
-    </div>
     <div class="home-search-results" *ngIf="searchShow.length > 0">
       <div class="result-box">
         <div class="result-item ion-activatable ripple-parent" *ngFor="let item of searchShow; let i = index"
@@ -41,8 +34,8 @@
   </div>
 </div>
 
-<ion-fab (click)="startSpeechRecognition()" vertical="bottom" horizontal="center" slot="fixed">
+<ion-fab (click)="openAssistant()" vertical="bottom" horizontal="center" slot="fixed">
   <ion-fab-button [color]="isRecording ? 'danger' : 'warning'">
-    <ion-icon name="mic"></ion-icon>
+    <ion-icon name="accessibility"></ion-icon>
   </ion-fab-button>
 </ion-fab>
