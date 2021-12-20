@@ -10,6 +10,7 @@ import { HelpPage } from '../help/help.page';
 import { Shake } from '@ionic-native/shake/ngx';
 // speech recognition
 import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -17,9 +18,6 @@ import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  private isRecording: boolean = false;
-  private message: string;
-
   private searchInfo = [];
   private searchShow = [];
 
@@ -28,12 +26,11 @@ export class HomePage implements OnInit {
     private apiSrv: ApiService,
     private localSrv: LocalService,
     private shake: Shake,
-    private speechRecognition: SpeechRecognition,
-    public navCtrl: NavController
+    public navCtrl: NavController,
+    private router: Router
   ) {}
 
   async ngOnInit() {
-    this.getSpeechPermission();
     this.searchInfo = this.apiSrv.getPois();
 
     // accelerometer
@@ -62,6 +59,11 @@ export class HomePage implements OnInit {
     }
   }
 
+  /**
+   * Abre el Punto de Interés del número (ID) pasado como parámetro
+   * @param id ID del punto de interés
+   * @returns modal present (for await)
+   */
   public async openPoi(id: number): Promise<void> {
     const modal = await this.modalCtrl.create({
       component: PoiDetailPage,
@@ -74,24 +76,11 @@ export class HomePage implements OnInit {
     return await modal.present();
   }
 
-  public getSpeechPermission() {
-    this.speechRecognition.hasPermission().then((hasPermission: boolean) => {
-      if (!hasPermission) {
-        this.speechRecognition.requestPermission();
-      }
-    });
-  }
-
-  public startSpeechRecognition() {
-    this.isRecording = true;
-    let options = {
-      language: 'es-ES',
-      matches: 1,
-      showPopup: false
-    }
-    this.speechRecognition.startListening(options).subscribe(matches => {
-      this.message = matches[0];
-      this.isRecording = false;
-    });
+  /**
+   * Abre el asistente conversacional
+   * @see ../conversation/conversation.page.ts
+   */
+  public openAssistant() {
+    this.router.navigate(['/conversation']);
   }
 }

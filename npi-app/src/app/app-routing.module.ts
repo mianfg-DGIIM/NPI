@@ -18,7 +18,11 @@ const routes: Routes = [
   {
     path: 'destination',
     loadChildren: () => import('./pages/destination/destination.module').then( m => m.DestinationPageModule)
-  }
+  },
+  {
+    path: 'conversation',
+    loadChildren: () => import('./pages/conversation/conversation.module').then( m => m.ConversationPageModule)
+  },
 ];
 
 @NgModule({
