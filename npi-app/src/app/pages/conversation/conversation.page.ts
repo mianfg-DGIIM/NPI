@@ -19,6 +19,8 @@ export class ConversationPage {
   public messages: any = [];              /** Cola de mensajes */
   public myMessage: string;               /** Mensaje actual (el que se está grabando o tecleando) */
 
+  public session: string;                 /** Sesión de DialogFlow */
+
   constructor(
     private speechRecognition: SpeechRecognition,   // servicio speech recognition
     private http: HTTP,                             // servicio para petición GET
@@ -30,6 +32,10 @@ export class ConversationPage {
   ) { }
   
   async ngOnInit() {
+    // generar ID de sesión aleatorio
+    // de: https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
+    this.session = (Math.random() + 1).toString(36).substring(7);
+
     // tomar permisos para speech recognizer
     this.getSpeechPermission();
 
@@ -132,7 +138,7 @@ export class ConversationPage {
     });
     this.imessage.scrollToBottom(300); // hacer scroll hacia el final de los mensajes
     // usar API de Flask para las llamadas a DialogFlow
-    this.http.get(`http://mianfg.me:5000/npi-dialogflow/test/${this.myMessage}`, {}, {})
+    this.http.get(`http://mianfg.me:5000/npi-dialogflow/${this.session}/${this.myMessage}`, {}, {})
       .then(data => {
         // parsear datos de JSON a diccionario
         const response = JSON.parse(data.data);
